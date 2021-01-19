@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c786b5b-0186-48bb-9f8a-76fcfa965c4e" name="Default Changelist" comment="" />
+    <list default="true" id="1c786b5b-0186-48bb-9f8a-76fcfa965c4e" name="Default Changelist" comment="added mongoose">
+      <change afterPath="$PROJECT_DIR$/retro-backend/src/session/model/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/retro-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-backend/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-backend/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/retro-backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/retro-backend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nIj5iCcInBDg3CnU0Lz2KAbPvn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -19,10 +31,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/retro-backend/node_modules/prettier" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/retro-backend/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -34,11 +49,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611084317740</updated>
-      <workItem from="1611084318772" duration="322000" />
+      <workItem from="1611084318772" duration="5747000" />
     </task>
+    <task id="LOCAL-00001" summary="added nest and angular empty projects">
+      <created>1611084748234</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611084748234</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="added nest and angular empty projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="added nest and angular empty projects" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="848" y="732" width="702" height="351" key="#Prettier" timestamp="1611084779608">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="848" y="732" width="702" height="351" key="#Prettier/0.27.3840.2133@0.27.3840.2133" timestamp="1611084779608" />
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2" timestamp="1611090062028">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1611090062028" />
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup" timestamp="1611090042513">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611090042513" />
   </component>
 </project>
