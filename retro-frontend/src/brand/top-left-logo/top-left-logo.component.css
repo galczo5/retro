@@ -1,7 +1,6 @@
 .logo {
   font-family: 'Pacifico', cursive;
   position: fixed;
-  top: 20px;
-  left: 20px;
   color: var(--text-color);
+  z-index: -1;
 }

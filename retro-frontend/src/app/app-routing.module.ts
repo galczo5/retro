@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../home/home/home.component';
 import { HomeModule } from '../home/home.module';
+import { SessionModule } from '../session/session.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => HomeModule }
+  { path: '', loadChildren: () => HomeModule },
+  { path: 'session/:id', loadChildren: () => SessionModule }
 ];
 
 @NgModule({

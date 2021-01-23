@@ -2,19 +2,19 @@
 
   <div class="flex flex-col px-20 py-10 rounded-2xl shadow-2xl">
     <app-header>
-      Create new session
+      Create new container
     </app-header>
-    <label #input class="mb-3">Session secret used for editing</label>
-    <input class="p-3 border-2 mb-5 rounded" type="text" placeholder="secret string">
+    <label class="mb-3">Container name</label>
+    <input #input class="p-3 border-2 mb-5 rounded" type="text" placeholder="Sth interesting for your team...">
 
     <div class="text-right">
       <app-button class="mr-3"
                   [alternative]="true"
-                  routerLink="/">
+                  routerLink="../">
         Go back
       </app-button>
-      <app-button (click)="createSession(input)">
-        Create session
+      <app-button (click)="createContainer(input)">
+        Create container
       </app-button>
     </div>
   </div>

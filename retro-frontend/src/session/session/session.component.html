@@ -1,0 +1,7 @@
+<div class="w-screen h-screen pt-20 pb-5 flex" style="overflow-x: auto;">
+  <app-card-container *ngFor="let container of containers"
+                      [hash]="container.hash"
+                      [sessionHash]="hash"
+                      [header]="container.name"></app-card-container>
+</div>
+<app-session-control-panel></app-session-control-panel>

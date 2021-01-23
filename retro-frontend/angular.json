@@ -25,9 +25,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/tailwind.css"
+              "src/tailwind.css",
+              "node_modules/github-markdown-css/github-markdown.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js"
+            ]
           },
           "configurations": {
             "production": {
