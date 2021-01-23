@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SessionHttpService } from '../../app/session-http.service';
 import { ContainersService } from '../containers.service';
 import { Card } from '../../models/card';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-card-container',
@@ -21,6 +22,7 @@ export class CardContainerComponent {
 
   @Input()
   cards: Array<Card> = [];
+  dropActive: boolean = false;
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly containersService: ContainersService) { }
@@ -38,5 +40,13 @@ export class CardContainerComponent {
 
   getCounter(): string {
     return this.cards.length + (this.cards.length === 1 ? ' thought' : ' thoughts')
+  }
+
+  dropped($event: any) {
+    console.log('container', $event);
+  }
+
+  setDropActive(value: boolean): void {
+    this.dropActive = value;
   }
 }

@@ -1,4 +1,10 @@
-<div class="bg-gray-50 mx-5 pb-10 rounded-2xl z-10" style="min-width: 800px">
+<div class="bg-gray-50 mx-5 pb-10 rounded-2xl z-10"
+     style="min-width: 600px"
+     appDrop
+     [class.drop-active]="dropActive"
+     (onDragEnter)="setDropActive(true)"
+     (onDragLeave)="setDropActive(false)"
+     (onDrop)="dropped('container ' + header)">
   <div class="text-left flex flex-col">
     <div class="p-3 flex w-full items-center justify-between">
       <app-pill>
@@ -16,10 +22,12 @@
     <div class="flex mt-1">
       <div class="w-1/2 pl-3 pr-2">
         <app-card *ngFor="let card of getCards(0)"
+                  [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
       <div class="w-1/2 pr-3 pl-2">
         <app-card *ngFor="let card of getCards(1)"
+                  [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
     </div>

@@ -1,3 +1,10 @@
-<div class="bg-white p-5 mb-5 border rounded-2xl shadow-lg">
+<div class="bg-white p-5 mb-5 border rounded-2xl shadow-lg"
+     appDrop
+     appDrag
+     [dragData]="hash"
+     [class.drop-active]="dropActive"
+     (onDrop)="onDrop('card ' + hash)"
+     (onDragEnter)="setDropActive(true)"
+     (onDragLeave)="setDropActive(false)">
   <markdown class="markdown-body" [data]="text" [emoji]="true" ngPreserveWhitespaces></markdown>
 </div>

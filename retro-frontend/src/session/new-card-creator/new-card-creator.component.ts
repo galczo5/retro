@@ -6,6 +6,7 @@ import { Container } from '../../models/container';
 import { SessionHashService } from '../session-hash.service';
 import { SessionHttpService } from '../../app/session-http.service';
 import { Location } from '@angular/common';
+import { UserIdService } from '../../app/user-id.service';
 
 @Component({
   selector: 'app-new-card-creator',
@@ -31,7 +32,8 @@ You can use markdown (like in Git Hub) to create your own styled card.
   constructor(private readonly containersService: ContainersService,
               private readonly sessionHashService: SessionHashService,
               private readonly httpService: SessionHttpService,
-              private readonly location: Location) { }
+              private readonly location: Location,
+              private readonly userIdServiceService: UserIdService) { }
 
   ngOnInit(): void {
     this.containersService.fetch();
@@ -65,6 +67,8 @@ You can use markdown (like in Git Hub) to create your own styled card.
   }
 
   createCard(input: HTMLTextAreaElement): void {
+    const userId = this.userIdServiceService.getUserId();
+
     this.sessionHashService.getHash()
       .pipe(
         take(1),

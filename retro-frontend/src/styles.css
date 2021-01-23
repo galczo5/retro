@@ -5,3 +5,22 @@
 * {
   font-family: 'Ubuntu', sans-serif;
 }
+
+body {
+  overflow: hidden;
+}
+
+.drop-active {
+  animation-name: shadow;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shadow {
+  from {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+  }
+  to {
+    box-shadow: 0 0 2px 2px rgba(59, 130, 246, 0.3);
+  }
+}

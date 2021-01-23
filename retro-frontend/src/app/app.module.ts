@@ -1,10 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_BOOTSTRAP_LISTENER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrandModule } from '../brand/brand.module';
+import { UserIdService } from './user-id.service';
+import { UserIdHttpInterceptor } from './UserIdHttpInterceptor';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+export function userIdPovideFactory(userIdServiceService: UserIdService) {
+  return () => {
+    userIdServiceService.getUserId();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -12,11 +21,24 @@ import { BrandModule } from '../brand/brand.module';
   ],
   imports: [
     BrowserModule,
+    DragDropModule,
     HttpClientModule,
     AppRoutingModule,
     BrandModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_BOOTSTRAP_LISTENER,
+      useFactory: userIdPovideFactory,
+      deps: [UserIdService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserIdHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

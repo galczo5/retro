@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-card',
@@ -8,11 +9,23 @@ import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input()
+  hash: string;
+
+  @Input()
   text: string;
+
+  dropActive: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onDrop($event: any) {
+    console.log('card', $event);
+  }
+
+  setDropActive(value: boolean): void {
+    this.dropActive = value;
+  }
 }

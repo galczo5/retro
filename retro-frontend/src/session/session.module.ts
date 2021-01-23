@@ -11,9 +11,12 @@ import { NewContainerCreatorComponent } from './new-container-creator/new-contai
 import { HeadersModule } from '../headers/headers.module';
 import { NewCardCreatorComponent } from './new-card-creator/new-card-creator.component';
 import { PillModule } from '../pill/pill.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDirective } from './drag.directive';
+import { DropDirective } from './drop.directive';
 
 @NgModule({
-  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent],
+  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent, DragDirective, DropDirective],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -24,7 +27,8 @@ import { PillModule } from '../pill/pill.module';
     MarkdownModule.forRoot(),
     ButtonsModule,
     HeadersModule,
-    PillModule
+    PillModule,
+    DragDropModule
   ]
 })
 export class SessionModule { }
