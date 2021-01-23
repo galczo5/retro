@@ -1,13 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SessionHttpService } from '../../app/session-http.service';
 import { ContainersService } from '../containers.service';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-card-container',
   templateUrl: './card-container.component.html',
   styleUrls: ['./card-container.component.css']
 })
-export class CardContainerComponent implements OnInit {
+export class CardContainerComponent {
 
   @Input()
   sessionHash: string;
@@ -18,11 +19,11 @@ export class CardContainerComponent implements OnInit {
   @Input()
   header: string;
 
+  @Input()
+  cards: Array<Card> = [];
+
   constructor(private readonly httpService: SessionHttpService,
               private readonly containersService: ContainersService) { }
-
-  ngOnInit(): void {
-  }
 
   deleteContainer(): void {
     this.httpService.deleteContainer(this.sessionHash, this.hash)
@@ -31,4 +32,11 @@ export class CardContainerComponent implements OnInit {
       });
   }
 
+  getCards(mod: number): Array<Card> {
+    return this.cards.filter((value, index) => index % 2 === mod);
+  }
+
+  getCounter(): string {
+    return this.cards.length + (this.cards.length === 1 ? ' thought' : ' thoughts')
+  }
 }

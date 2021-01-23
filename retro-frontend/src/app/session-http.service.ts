@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ContainerDto } from '../models/containerDto';
+import { CardDto } from '../models/cardDto';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,21 @@ export class SessionHttpService {
 
   deleteContainer(hash: string, containerHash: string): Observable<void> {
     return this.client.delete(`http://localhost:3000/session/${hash}/containers/${containerHash}`)
+      .pipe(map(() => null));
+  }
+
+  getCards(hash: string): Observable<Array<CardDto>> {
+    return this.client.get(`http://localhost:3000/session/${hash}/cards`)
+      .pipe(map(obj => obj as Array<CardDto>));
+  }
+
+  createCard(hash: string, containerHash: string, text: string): Observable<void> {
+    const body = {
+      containerHash: containerHash,
+      text: text
+    };
+
+    return this.client.post(`http://localhost:3000/session/${hash}/cards`, body)
       .pipe(map(() => null));
   }
 }

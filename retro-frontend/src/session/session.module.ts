@@ -9,29 +9,22 @@ import { SessionControlPanelComponent } from './session-control-panel/session-co
 import { ButtonsModule } from '../buttons/buttons.module';
 import { NewContainerCreatorComponent } from './new-container-creator/new-container-creator.component';
 import { HeadersModule } from '../headers/headers.module';
+import { NewCardCreatorComponent } from './new-card-creator/new-card-creator.component';
+import { PillModule } from '../pill/pill.module';
 
 @NgModule({
-  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent],
+  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: SessionComponent },
-      { path: 'new-container', component: NewContainerCreatorComponent }
+      { path: 'new-container', component: NewContainerCreatorComponent },
+      { path: 'new-card', component: NewCardCreatorComponent }
     ]),
-    MarkdownModule.forRoot({
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          breaks: true,
-          pedantic: true,
-          smartLists: true,
-          smartypants: true
-        }
-      }
-    }),
+    MarkdownModule.forRoot(),
     ButtonsModule,
-    HeadersModule
+    HeadersModule,
+    PillModule
   ]
 })
 export class SessionModule { }
