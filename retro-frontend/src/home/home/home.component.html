@@ -1,0 +1,19 @@
+<div class="w-screen h-screen flex flex-col items-center justify-center">
+  <div>
+    <app-header>
+      Definitive <span class="underline">retrospective</span> tool <br> for <span class="underline">agile</span> teams
+    </app-header>
+  </div>
+  <div class="flex">
+    <div class="p-3">
+      <app-button routerLink="new-session">
+        Create new session
+      </app-button>
+    </div>
+    <div class="p-3">
+      <app-button [alternative]="true">
+        Join existing session
+      </app-button>
+    </div>
+  </div>
+</div>
