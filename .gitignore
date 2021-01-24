@@ -1,7 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/retro-frontend/dist
+/retro-backend/dist
+/retro-frontend/node_modules
+/retro-backend/node_modules
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -44,3 +47,21 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# compiled output
+/dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+
+# Tests
+/.nyc_output
+/retro-backend/node_modules/
+/retro-backend/dist/

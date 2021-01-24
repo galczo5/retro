@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c786b5b-0186-48bb-9f8a-76fcfa965c4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cards.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home.png" afterDir="false" />
+    <list default="true" id="1c786b5b-0186-48bb-9f8a-76fcfa965c4e" name="Default Changelist" comment="readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-backend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <workItem from="1611395444775" duration="43000" />
       <workItem from="1611395497826" duration="198000" />
       <workItem from="1611395706078" duration="49541000" />
-      <workItem from="1611499726268" duration="2144000" />
+      <workItem from="1611499726268" duration="2926000" />
     </task>
     <task id="LOCAL-00001" summary="added nest and angular empty projects">
       <created>1611084748234</created>
@@ -135,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611500364555</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="readme">
+      <created>1611502371889</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611502371889</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +157,8 @@
     <MESSAGE value="dnd init" />
     <MESSAGE value="dnd" />
     <MESSAGE value="alpha version" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha version" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="851" y="562" width="1000" height="906" key="#Intentions" timestamp="1611163344060">
@@ -171,14 +177,14 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1047" y="807" width="607" height="355" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.3840.2133@0.27.3840.2133" timestamp="1611395571789" />
-    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2" timestamp="1611500364476">
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2" timestamp="1611504089997">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1611500364476" />
-    <state x="211" y="272" width="3072" height="1743" key="DiffContextDialog" timestamp="1611437665137">
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1611504089997" />
+    <state x="211" y="272" width="3072" height="1743" key="DiffContextDialog" timestamp="1611503989088">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="211" y="272" width="3072" height="1743" key="DiffContextDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1611437665137" />
+    <state x="211" y="272" width="3072" height="1743" key="DiffContextDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1611503989088" />
     <state x="735" y="529" width="1241" height="912" key="SettingsEditor" timestamp="1611395641345">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -191,6 +197,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1032" y="644" width="957" height="861" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1611498224298" />
+    <state x="1574" y="825" width="972" height="788" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1611504089364">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="1574" y="825" width="972" height="788" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1611504089364" />
     <state x="895" y="599" width="1299" height="975" key="find.popup" timestamp="1611498180926">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -199,9 +209,9 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1096" y="507" key="run.anything.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611492189526" />
-    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup" timestamp="1611500334134">
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup" timestamp="1611504069594">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611500334134" />
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611504069594" />
   </component>
 </project>
