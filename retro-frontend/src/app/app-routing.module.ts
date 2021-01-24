@@ -1,15 +1,15 @@
-import { Injectable, NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { HomeModule } from '../home/home.module';
-import { SessionModule } from '../session/session.module';
-import { SessionHashService } from '../session/session-hash.service';
-import { EditorRoleService } from './editor-role.service';
-import { map, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { SessionHttpService } from './session-http.service';
-import { CardsVisibleService } from './cards-visible.service';
+import {Injectable, NgModule} from '@angular/core';
+import {Routes, RouterModule, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {HomeModule} from '../home/home.module';
+import {SessionModule} from '../session/session.module';
+import {SessionHashService} from '../session/session-hash.service';
+import {EditorRoleService} from './editor-role.service';
+import {map, switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {SessionHttpService} from './session-http.service';
+import {CardsVisibleService} from './cards-visible.service';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class SessionHashGuard implements CanActivate {
 
   constructor(private readonly sessionHashService: SessionHashService) {
@@ -23,7 +23,7 @@ export class SessionHashGuard implements CanActivate {
 
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class EditorRoleGuard implements CanActivate {
 
   constructor(private readonly editorRoleService: EditorRoleService,
@@ -43,7 +43,7 @@ export class EditorRoleGuard implements CanActivate {
 
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class CardsVisibleGuard implements CanActivate {
 
   constructor(private readonly httpService: SessionHttpService,
@@ -65,12 +65,13 @@ export class CardsVisibleGuard implements CanActivate {
 }
 
 const routes: Routes = [
-  { path: '', loadChildren: () => HomeModule },
-  { path: 'session/:id', loadChildren: () => SessionModule, canActivate: [ SessionHashGuard, EditorRoleGuard ] }
+  {path: '', loadChildren: () => HomeModule},
+  {path: 'session/:id', loadChildren: () => SessionModule, canActivate: [SessionHashGuard, EditorRoleGuard]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

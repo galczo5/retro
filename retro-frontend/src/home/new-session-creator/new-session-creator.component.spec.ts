@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NewSessionCreatorComponent } from './new-session-creator.component';
+import {NewSessionCreatorComponent} from './new-session-creator.component';
 
 describe('NewSessionCreatorComponent', () => {
   let component: NewSessionCreatorComponent;
@@ -8,9 +8,9 @@ describe('NewSessionCreatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewSessionCreatorComponent ]
+      declarations: [NewSessionCreatorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

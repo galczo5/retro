@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { SessionHttpService } from '../../app/session-http.service';
-import { SessionHashService } from '../session-hash.service';
-import { switchMap, take } from 'rxjs/operators';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {SessionHttpService} from '../../app/session-http.service';
+import {SessionHashService} from '../session-hash.service';
+import {switchMap, take} from 'rxjs/operators';
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-new-container-creator',
@@ -14,7 +14,8 @@ export class NewContainerCreatorComponent implements OnInit {
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly sessionHashService: SessionHashService,
-              private readonly location: Location) { }
+              private readonly location: Location) {
+  }
 
   ngOnInit(): void {
   }
@@ -30,7 +31,7 @@ export class NewContainerCreatorComponent implements OnInit {
       )
       .subscribe(() => {
         this.location.back();
-      })
+      });
   }
 
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { EditorRoleService } from '../../app/editor-role.service';
-import { CardsVisibleService } from '../../app/cards-visible.service';
+import {Component, OnInit} from '@angular/core';
+import {EditorRoleService} from '../../app/editor-role.service';
+import {CardsVisibleService} from '../../app/cards-visible.service';
 
 @Component({
   selector: 'app-session-control-panel',
@@ -9,11 +9,12 @@ import { CardsVisibleService } from '../../app/cards-visible.service';
 })
 export class SessionControlPanelComponent implements OnInit {
 
-  canEdit: boolean = false;
-  cardsVisible: boolean = false;
+  canEdit = false;
+  cardsVisible = false;
 
   constructor(private readonly editorRoleService: EditorRoleService,
-              private readonly cardsVisibleService: CardsVisibleService) { }
+              private readonly cardsVisibleService: CardsVisibleService) {
+  }
 
   ngOnInit(): void {
     this.canEdit = this.editorRoleService.canEdit();
@@ -24,7 +25,7 @@ export class SessionControlPanelComponent implements OnInit {
     this.cardsVisibleService.toggle()
       .subscribe(() => {
         this.cardsVisible = this.cardsVisibleService.getCardsVisible();
-      })
+      });
   }
 
 }

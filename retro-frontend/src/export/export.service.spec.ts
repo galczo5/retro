@@ -1,13 +1,13 @@
 import {TestBed} from '@angular/core/testing';
 
-import {SessionHashService} from './session-hash.service';
+import {ExportService} from './export.service';
 
-describe('SessionHashService', () => {
-  let service: SessionHashService;
+describe('ExportService', () => {
+  let service: ExportService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SessionHashService);
+    service = TestBed.inject(ExportService);
   });
 
   it('should be created', () => {

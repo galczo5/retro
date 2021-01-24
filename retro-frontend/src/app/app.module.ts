@@ -1,15 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { APP_BOOTSTRAP_LISTENER, NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {APP_BOOTSTRAP_LISTENER, NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { BrandModule } from '../brand/brand.module';
-import { UserIdService } from './user-id.service';
-import { UserIdInterceptor } from './user-id-interceptor.service';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {BrandModule} from '../brand/brand.module';
+import {UserIdService} from './user-id.service';
+import {UserIdInterceptor} from './user-id-interceptor.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
-export function userIdPovideFactory(userIdServiceService: UserIdService) {
+export function userIdProvideFactory(userIdServiceService: UserIdService): () => void {
   return () => {
     userIdServiceService.getUserId();
   };
@@ -29,7 +29,7 @@ export function userIdPovideFactory(userIdServiceService: UserIdService) {
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: userIdPovideFactory,
+      useFactory: userIdProvideFactory,
       deps: [UserIdService],
       multi: true
     },
@@ -41,4 +41,5 @@ export function userIdPovideFactory(userIdServiceService: UserIdService) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

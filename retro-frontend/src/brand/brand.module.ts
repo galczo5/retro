@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TopLeftLogoComponent } from './top-left-logo/top-left-logo.component';
-import { GithubLinkComponent } from './github-link/github-link.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TopLeftLogoComponent} from './top-left-logo/top-left-logo.component';
+import {GithubLinkComponent} from './github-link/github-link.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -12,7 +12,9 @@ import { GithubLinkComponent } from './github-link/github-link.component';
     GithubLinkComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
-export class BrandModule { }
+export class BrandModule {
+}

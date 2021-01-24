@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ContainerDto } from '../models/containerDto';
-import { CardDto } from '../models/cardDto';
-import { environment } from '../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {ContainerDto} from '../models/containerDto';
+import {CardDto} from '../models/cardDto';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionHttpService {
 
-  constructor(private readonly client: HttpClient) {}
+  constructor(private readonly client: HttpClient) {
+  }
 
   cardsVisible(hash: string): Observable<boolean> {
     return this.client.get(`${this.getApiUrl()}/session/${hash}`)
-      .pipe(map(response => response['cardsVisible']));
+      .pipe(map(response => response.cardsVisible));
   }
 
   run(hash: string): Observable<void> {
@@ -34,7 +35,7 @@ export class SessionHttpService {
     };
 
     return this.client.post(`${this.getApiUrl()}/session/new`, body)
-      .pipe(map(response => response['hash']));
+      .pipe(map(response => response.hash));
   }
 
   auth(hash: string, secretString: string): Observable<string> {
@@ -43,12 +44,12 @@ export class SessionHttpService {
     };
 
     return this.client.post(`${this.getApiUrl()}/token/auth/${hash}`, body)
-      .pipe(map(response => response['token']));
+      .pipe(map(response => response.token));
   }
 
   createContainer(hash: string, name: string): Observable<void> {
     const body = {
-      name: name
+      name
     };
 
     return this.client.post(`${this.getApiUrl()}/session/${hash}/containers`, body)
@@ -72,8 +73,8 @@ export class SessionHttpService {
 
   createCard(hash: string, containerHash: string, text: string): Observable<void> {
     const body = {
-      containerHash: containerHash,
-      text: text
+      containerHash,
+      text
     };
 
     return this.client.post(`${this.getApiUrl()}/session/${hash}/cards`, body)
@@ -82,8 +83,8 @@ export class SessionHttpService {
 
   moveCard(hash: string, containerHash: string, cardHash: string): Observable<void> {
     const body = {
-      containerHash: containerHash,
-      cardHash: cardHash
+      containerHash,
+      cardHash
     };
 
     return this.client.post(`${this.getApiUrl()}/session/${hash}/cards/move`, body)
@@ -92,9 +93,9 @@ export class SessionHttpService {
 
   mergeCards(hash: string, cardToDeleteHash: string, cardToUpdateHash: string, text: string): Observable<void> {
     const body = {
-      cardToDeleteHash: cardToDeleteHash,
-      cardToUpdateHash: cardToUpdateHash,
-      text: text
+      cardToDeleteHash,
+      cardToUpdateHash,
+      text
     };
 
     return this.client.post(`${this.getApiUrl()}/session/${hash}/cards/merge`, body)

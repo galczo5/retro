@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SessionControlPanelComponent } from './session-control-panel.component';
+import {SessionControlPanelComponent} from './session-control-panel.component';
 
 describe('SessionControlPanelComponent', () => {
   let component: SessionControlPanelComponent;
@@ -8,9 +8,9 @@ describe('SessionControlPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SessionControlPanelComponent ]
+      declarations: [SessionControlPanelComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

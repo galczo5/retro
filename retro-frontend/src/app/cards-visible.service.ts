@@ -1,21 +1,21 @@
-import { Injectable } from '@angular/core';
-import { SessionHttpService } from './session-http.service';
-import { SessionHashService } from '../session/session-hash.service';
-import { Observable } from 'rxjs';
-import { switchMap, take, tap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {SessionHttpService} from './session-http.service';
+import {SessionHashService} from '../session/session-hash.service';
+import {Observable} from 'rxjs';
+import {switchMap, take, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardsVisibleService {
 
-  private cardsVisible: boolean = false;
+  private cardsVisible = false;
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly sessionHashService: SessionHashService) {
   }
 
-  setCardsVisible(cardsVisible: boolean) {
+  setCardsVisible(cardsVisible: boolean): void {
     this.cardsVisible = cardsVisible;
   }
 
@@ -37,6 +37,6 @@ export class CardsVisibleService {
         tap(() => {
           this.cardsVisible = !this.cardsVisible;
         })
-      )
+      );
   }
 }

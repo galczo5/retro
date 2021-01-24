@@ -1,12 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ContainersService } from '../containers.service';
-import { SessionHashService } from '../session-hash.service';
-import { Container } from '../../models/container';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { CardsService } from '../cards.service';
-import { Card } from '../../models/card';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ContainersService} from '../containers.service';
+import {SessionHashService} from '../session-hash.service';
+import {Container} from '../../models/container';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {CardsService} from '../cards.service';
+import {Card} from '../../models/card';
 
 @Component({
   selector: 'app-session',
@@ -19,14 +19,15 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   hash: string;
 
-  private cards: Map<string, Array<Card>> = new Map<string, Array<Card>>()
+  private cards: Map<string, Array<Card>> = new Map<string, Array<Card>>();
 
   private readonly onDestroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly route: ActivatedRoute,
               private readonly containersService: ContainersService,
               private readonly cardsService: CardsService,
-              private readonly sessionHashService: SessionHashService) { }
+              private readonly sessionHashService: SessionHashService) {
+  }
 
   ngOnInit(): void {
     this.containersService.fetch();
@@ -42,7 +43,7 @@ export class SessionComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(containers => {
         this.containers = containers;
-      })
+      });
 
     this.cardsService.getCards()
       .pipe(takeUntil(this.onDestroy$))

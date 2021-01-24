@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
-import { SessionHttpService } from '../app/session-http.service';
-import { SessionHashService } from './session-hash.service';
-import { map, switchMap, take } from 'rxjs/operators';
-import { Card } from '../models/card';
+import {Injectable} from '@angular/core';
+import {Observable, ReplaySubject} from 'rxjs';
+import {SessionHttpService} from '../app/session-http.service';
+import {SessionHashService} from './session-hash.service';
+import {map, switchMap, take} from 'rxjs/operators';
+import {Card} from '../models/card';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,8 @@ export class CardsService {
   private readonly cards$: ReplaySubject<Array<Card>> = new ReplaySubject<Array<Card>>(1);
 
   constructor(private readonly httpService: SessionHttpService,
-              private readonly sessionHashService: SessionHashService) { }
+              private readonly sessionHashService: SessionHashService) {
+  }
 
   fetch(): void {
     this.sessionHashService.getHash()
@@ -31,7 +32,7 @@ export class CardsService {
     this.sessionHashService.getHash()
       .pipe(
         take(1),
-        switchMap(hash => this.httpService.moveCard(hash, containerHash, cardHash))
+        switchMap(sessionHash => this.httpService.moveCard(sessionHash, containerHash, cardHash))
       )
       .subscribe(() => {
         this.fetch();

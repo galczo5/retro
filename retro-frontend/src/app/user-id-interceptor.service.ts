@@ -1,8 +1,8 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { UserIdService } from './user-id.service';
-import { EditorRoleService } from './editor-role.service';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {UserIdService} from './user-id.service';
+import {EditorRoleService} from './editor-role.service';
 
 @Injectable()
 export class UserIdInterceptor implements HttpInterceptor {
@@ -22,7 +22,7 @@ export class UserIdInterceptor implements HttpInterceptor {
     if (token) {
       httpRequest = httpRequest.clone({
         headers: req.headers.set('User-Token', token)
-      })
+      });
     }
 
     return next.handle(httpRequest);

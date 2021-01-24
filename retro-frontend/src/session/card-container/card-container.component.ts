@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SessionHttpService } from '../../app/session-http.service';
-import { ContainersService } from '../containers.service';
-import { Card } from '../../models/card';
-import { EditorRoleService } from '../../app/editor-role.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {SessionHttpService} from '../../app/session-http.service';
+import {ContainersService} from '../containers.service';
+import {Card} from '../../models/card';
+import {EditorRoleService} from '../../app/editor-role.service';
 
 @Component({
   selector: 'app-card-container',
@@ -26,13 +26,14 @@ export class CardContainerComponent implements OnInit {
   @Output()
   cardDropped: EventEmitter<string> = new EventEmitter<string>();
 
-  dropActive: boolean = false;
+  dropActive = false;
 
-  canEdit: boolean = false;
+  canEdit = false;
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly containersService: ContainersService,
-              private readonly editorRoleService: EditorRoleService) { }
+              private readonly editorRoleService: EditorRoleService) {
+  }
 
   ngOnInit(): void {
     this.canEdit = this.editorRoleService.canEdit();
@@ -50,10 +51,10 @@ export class CardContainerComponent implements OnInit {
   }
 
   getCounter(): string {
-    return this.cards.length + (this.cards.length === 1 ? ' thought' : ' thoughts')
+    return this.cards.length + (this.cards.length === 1 ? ' thought' : ' thoughts');
   }
 
-  dropped(event: string) {
+  dropped(event: string): void {
     this.cardDropped.emit(event);
   }
 

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CardsService } from '../cards.service';
-import { Card } from '../../models/card';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CardsService} from '../cards.service';
+import {Card} from '../../models/card';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-merge-cards',
@@ -16,7 +16,8 @@ export class MergeCardsComponent implements OnInit {
 
   constructor(private readonly activatedRoute: ActivatedRoute,
               private readonly cardsService: CardsService,
-              private readonly location: Location) { }
+              private readonly location: Location) {
+  }
 
   ngOnInit(): void {
     const leftId = this.activatedRoute.snapshot.paramMap.get('id1');
@@ -30,9 +31,9 @@ export class MergeCardsComponent implements OnInit {
       });
   }
 
-  prepareText(string: string): string {
+  prepareText(str: string): string {
     const prefix = ':thumbsup: `MERGED` \n\n';
-    return prefix + string.replace(prefix, '');
+    return prefix + str.replace(prefix, '');
   }
 
   merge(text: string): void {

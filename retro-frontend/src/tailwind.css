@@ -52,16 +52,14 @@ Improve consistency of default fonts in all browsers. (https://github.com/sindre
 */
 
 body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+  font-family: system-ui,
+  -apple-system, /* Firefox supports this but not yet `system-ui` */ 'Segoe UI',
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif,
+  'Apple Color Emoji',
+  'Segoe UI Emoji';
 }
 
 /*
@@ -90,7 +88,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /**
@@ -111,13 +109,12 @@ code,
 kbd,
 samp,
 pre {
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace; /* 1 */
+  font-family: ui-monospace,
+  SFMono-Regular,
+  Consolas,
+  'Liberation Mono',
+  Menlo,
+  monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -2056,7 +2053,7 @@ video {
 
 .appearance-none {
   -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 .bg-fixed {
@@ -2085,7 +2082,7 @@ video {
 
 .bg-clip-text {
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
 }
 
 .bg-transparent {
@@ -19541,7 +19538,7 @@ video {
 }
 
 * {
-  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgba(59, 130, 246, 0.5);
@@ -24714,11 +24711,11 @@ video {
 }
 
 .ordinal, .slashed-zero, .lining-nums, .oldstyle-nums, .proportional-nums, .tabular-nums, .diagonal-fractions, .stacked-fractions {
-  --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-  --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-  --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-  --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-  --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+  --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+  --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+  --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+  --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
@@ -24784,22 +24781,22 @@ video {
 
 .select-none {
   -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .select-text {
   -webkit-user-select: text;
-          user-select: text;
+  user-select: text;
 }
 
 .select-all {
   -webkit-user-select: all;
-          user-select: all;
+  user-select: all;
 }
 
 .select-auto {
   -webkit-user-select: auto;
-          user-select: auto;
+  user-select: auto;
 }
 
 .align-baseline {
@@ -29111,12 +29108,12 @@ video {
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
 
   50% {
     transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
@@ -30660,7 +30657,7 @@ video {
 
   .sm\:appearance-none {
     -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 
   .sm\:bg-fixed {
@@ -30689,7 +30686,7 @@ video {
 
   .sm\:bg-clip-text {
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
   }
 
   .sm\:bg-transparent {
@@ -53305,11 +53302,11 @@ video {
   }
 
   .sm\:ordinal, .sm\:slashed-zero, .sm\:lining-nums, .sm\:oldstyle-nums, .sm\:proportional-nums, .sm\:tabular-nums, .sm\:diagonal-fractions, .sm\:stacked-fractions {
-    --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-    --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+    --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
     font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
   }
 
@@ -53375,22 +53372,22 @@ video {
 
   .sm\:select-none {
     -webkit-user-select: none;
-            user-select: none;
+    user-select: none;
   }
 
   .sm\:select-text {
     -webkit-user-select: text;
-            user-select: text;
+    user-select: text;
   }
 
   .sm\:select-all {
     -webkit-user-select: all;
-            user-select: all;
+    user-select: all;
   }
 
   .sm\:select-auto {
     -webkit-user-select: auto;
-            user-select: auto;
+    user-select: auto;
   }
 
   .sm\:align-baseline {
@@ -59221,7 +59218,7 @@ video {
 
   .md\:appearance-none {
     -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 
   .md\:bg-fixed {
@@ -59250,7 +59247,7 @@ video {
 
   .md\:bg-clip-text {
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
   }
 
   .md\:bg-transparent {
@@ -81866,11 +81863,11 @@ video {
   }
 
   .md\:ordinal, .md\:slashed-zero, .md\:lining-nums, .md\:oldstyle-nums, .md\:proportional-nums, .md\:tabular-nums, .md\:diagonal-fractions, .md\:stacked-fractions {
-    --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-    --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+    --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
     font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
   }
 
@@ -81936,22 +81933,22 @@ video {
 
   .md\:select-none {
     -webkit-user-select: none;
-            user-select: none;
+    user-select: none;
   }
 
   .md\:select-text {
     -webkit-user-select: text;
-            user-select: text;
+    user-select: text;
   }
 
   .md\:select-all {
     -webkit-user-select: all;
-            user-select: all;
+    user-select: all;
   }
 
   .md\:select-auto {
     -webkit-user-select: auto;
-            user-select: auto;
+    user-select: auto;
   }
 
   .md\:align-baseline {
@@ -87782,7 +87779,7 @@ video {
 
   .lg\:appearance-none {
     -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 
   .lg\:bg-fixed {
@@ -87811,7 +87808,7 @@ video {
 
   .lg\:bg-clip-text {
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
   }
 
   .lg\:bg-transparent {
@@ -110427,11 +110424,11 @@ video {
   }
 
   .lg\:ordinal, .lg\:slashed-zero, .lg\:lining-nums, .lg\:oldstyle-nums, .lg\:proportional-nums, .lg\:tabular-nums, .lg\:diagonal-fractions, .lg\:stacked-fractions {
-    --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-    --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+    --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
     font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
   }
 
@@ -110497,22 +110494,22 @@ video {
 
   .lg\:select-none {
     -webkit-user-select: none;
-            user-select: none;
+    user-select: none;
   }
 
   .lg\:select-text {
     -webkit-user-select: text;
-            user-select: text;
+    user-select: text;
   }
 
   .lg\:select-all {
     -webkit-user-select: all;
-            user-select: all;
+    user-select: all;
   }
 
   .lg\:select-auto {
     -webkit-user-select: auto;
-            user-select: auto;
+    user-select: auto;
   }
 
   .lg\:align-baseline {
@@ -116343,7 +116340,7 @@ video {
 
   .xl\:appearance-none {
     -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 
   .xl\:bg-fixed {
@@ -116372,7 +116369,7 @@ video {
 
   .xl\:bg-clip-text {
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
   }
 
   .xl\:bg-transparent {
@@ -138988,11 +138985,11 @@ video {
   }
 
   .xl\:ordinal, .xl\:slashed-zero, .xl\:lining-nums, .xl\:oldstyle-nums, .xl\:proportional-nums, .xl\:tabular-nums, .xl\:diagonal-fractions, .xl\:stacked-fractions {
-    --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-    --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+    --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
     font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
   }
 
@@ -139058,22 +139055,22 @@ video {
 
   .xl\:select-none {
     -webkit-user-select: none;
-            user-select: none;
+    user-select: none;
   }
 
   .xl\:select-text {
     -webkit-user-select: text;
-            user-select: text;
+    user-select: text;
   }
 
   .xl\:select-all {
     -webkit-user-select: all;
-            user-select: all;
+    user-select: all;
   }
 
   .xl\:select-auto {
     -webkit-user-select: auto;
-            user-select: auto;
+    user-select: auto;
   }
 
   .xl\:align-baseline {
@@ -144904,7 +144901,7 @@ video {
 
   .\32xl\:appearance-none {
     -webkit-appearance: none;
-            appearance: none;
+    appearance: none;
   }
 
   .\32xl\:bg-fixed {
@@ -144933,7 +144930,7 @@ video {
 
   .\32xl\:bg-clip-text {
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
   }
 
   .\32xl\:bg-transparent {
@@ -167549,11 +167546,11 @@ video {
   }
 
   .\32xl\:ordinal, .\32xl\:slashed-zero, .\32xl\:lining-nums, .\32xl\:oldstyle-nums, .\32xl\:proportional-nums, .\32xl\:tabular-nums, .\32xl\:diagonal-fractions, .\32xl\:stacked-fractions {
-    --tw-ordinal: var(--tw-empty,/*!*/ /*!*/);
-    --tw-slashed-zero: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-figure: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-spacing: var(--tw-empty,/*!*/ /*!*/);
-    --tw-numeric-fraction: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ordinal: var(--tw-empty, /*!*/ /*!*/);
+    --tw-slashed-zero: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-figure: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-spacing: var(--tw-empty, /*!*/ /*!*/);
+    --tw-numeric-fraction: var(--tw-empty, /*!*/ /*!*/);
     font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
   }
 
@@ -167619,22 +167616,22 @@ video {
 
   .\32xl\:select-none {
     -webkit-user-select: none;
-            user-select: none;
+    user-select: none;
   }
 
   .\32xl\:select-text {
     -webkit-user-select: text;
-            user-select: text;
+    user-select: text;
   }
 
   .\32xl\:select-all {
     -webkit-user-select: all;
-            user-select: all;
+    user-select: all;
   }
 
   .\32xl\:select-auto {
     -webkit-user-select: auto;
-            user-select: auto;
+    user-select: auto;
   }
 
   .\32xl\:align-baseline {

@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {CardComponent} from './card.component';
+import {ExportButtonComponent} from './export-button.component';
 
-describe('CardComponent', () => {
-  let component: CardComponent;
-  let fixture: ComponentFixture<CardComponent>;
+describe('ExportButtonComponent', () => {
+  let component: ExportButtonComponent;
+  let fixture: ComponentFixture<ExportButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CardComponent]
+      declarations: [ExportButtonComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardComponent);
+    fixture = TestBed.createComponent(ExportButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

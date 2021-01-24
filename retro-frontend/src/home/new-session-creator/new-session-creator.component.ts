@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { SessionHttpService } from '../../app/session-http.service';
-import { Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {Component} from '@angular/core';
+import {SessionHttpService} from '../../app/session-http.service';
+import {Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-new-session-creator',
@@ -12,7 +12,8 @@ import { of } from 'rxjs';
 export class NewSessionCreatorComponent {
 
   constructor(private readonly httpService: SessionHttpService,
-              private readonly router: Router) { }
+              private readonly router: Router) {
+  }
 
   createSession(secretInput: HTMLInputElement): void {
     this.httpService.createSession(secretInput.value)
@@ -26,7 +27,7 @@ export class NewSessionCreatorComponent {
       );
   }
 
-  private auth(hash: string, secretInput: HTMLInputElement) {
+  private auth(hash: string, secretInput: HTMLInputElement): Observable<string> {
     return this.httpService.auth(hash, secretInput.value)
       .pipe(
         switchMap(token => {
@@ -36,7 +37,7 @@ export class NewSessionCreatorComponent {
       );
   }
 
-  private setToken(hash: string, token: string) {
+  private setToken(hash: string, token: string): void {
     localStorage.setItem(hash, token);
   }
 }

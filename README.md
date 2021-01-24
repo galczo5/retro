@@ -3,6 +3,9 @@
 # Warning!
 ### This app is still work in progress. Do not use it in production yet.
 
+## Demo
+You can try it on demo instance (if it's running) [here](http://vps-4e02d70d.vps.ovh.net:4200/).
+
 ## How to start
 Follow the scripts in `package.json` or just run `yarn deploy`. 
 

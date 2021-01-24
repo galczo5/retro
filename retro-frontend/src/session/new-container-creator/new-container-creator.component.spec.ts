@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NewContainerCreatorComponent } from './new-container-creator.component';
+import {NewContainerCreatorComponent} from './new-container-creator.component';
 
 describe('NewContainerCreatorComponent', () => {
   let component: NewContainerCreatorComponent;
@@ -8,9 +8,9 @@ describe('NewContainerCreatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewContainerCreatorComponent ]
+      declarations: [NewContainerCreatorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

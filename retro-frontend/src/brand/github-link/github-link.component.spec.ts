@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GithubLinkComponent } from './github-link.component';
+import {GithubLinkComponent} from './github-link.component';
 
 describe('GithubLinkComponent', () => {
   let component: GithubLinkComponent;
@@ -8,9 +8,9 @@ describe('GithubLinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GithubLinkComponent ]
+      declarations: [GithubLinkComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

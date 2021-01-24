@@ -1,12 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ContainersService } from '../containers.service';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { Container } from '../../models/container';
-import { SessionHashService } from '../session-hash.service';
-import { SessionHttpService } from '../../app/session-http.service';
-import { Location } from '@angular/common';
-import { UserIdService } from '../../app/user-id.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ContainersService} from '../containers.service';
+import {switchMap, take, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {Container} from '../../models/container';
+import {SessionHashService} from '../session-hash.service';
+import {SessionHttpService} from '../../app/session-http.service';
+import {Location} from '@angular/common';
+import {UserIdService} from '../../app/user-id.service';
 
 @Component({
   selector: 'app-new-card-creator',
@@ -19,21 +19,22 @@ export class NewCardCreatorComponent implements OnInit, OnDestroy {
 
   selectedContainer: string;
 
-  preview: string  = `
+  preview = `
 # Card example :heart_eyes_cat:
 You can use markdown (like in Git Hub) to create your own styled card.
 
 * Lists
 * Text **styles** and other cool *features*
 * Emojis :heart: [cheatsheet - emoji list](https://github.com/ikatyang/emoji-cheat-sheet)
-  `
+  `;
   private readonly onDestroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly containersService: ContainersService,
               private readonly sessionHashService: SessionHashService,
               private readonly httpService: SessionHttpService,
               private readonly location: Location,
-              private readonly userIdServiceService: UserIdService) { }
+              private readonly userIdServiceService: UserIdService) {
+  }
 
   ngOnInit(): void {
     this.containersService.fetch();
@@ -45,7 +46,7 @@ You can use markdown (like in Git Hub) to create your own styled card.
         if (containers.length) {
           this.selectedContainer = containers[0].hash;
         }
-      })
+      });
   }
 
   ngOnDestroy(): void {
@@ -53,7 +54,7 @@ You can use markdown (like in Git Hub) to create your own styled card.
     this.onDestroy$.complete();
   }
 
-  setPreview(input: HTMLTextAreaElement) {
+  setPreview(input: HTMLTextAreaElement): void {
     this.preview = input.value;
   }
 
@@ -78,6 +79,6 @@ You can use markdown (like in Git Hub) to create your own styled card.
       )
       .subscribe(() => {
         this.location.back();
-      })
+      });
   }
 }

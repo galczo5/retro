@@ -1,8 +1,9 @@
-import { Directive, ElementRef, Input, NgZone, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
-import { CardDragService } from './card-drag.service';
-import { filter, takeUntil } from 'rxjs/operators';
-import { EditorRoleService } from '../app/editor-role.service';
+import {Directive, ElementRef, Inject, Input, NgZone, OnDestroy, OnInit, Renderer2} from '@angular/core';
+import {fromEvent, Observable, Subject} from 'rxjs';
+import {CardDragService} from './card-drag.service';
+import {filter, takeUntil} from 'rxjs/operators';
+import {EditorRoleService} from '../app/editor-role.service';
+import {DOCUMENT} from '@angular/common';
 
 @Directive({
   selector: '[appDrag]'
@@ -19,8 +20,8 @@ export class DragDirective implements OnInit, OnDestroy {
               private readonly renderer: Renderer2,
               private readonly cardDragService: CardDragService,
               private readonly editorRoleService: EditorRoleService,
-              private readonly ngZone: NgZone) {
-
+              private readonly ngZone: NgZone,
+              @Inject(DOCUMENT) private readonly document: Document) {
   }
 
   ngOnInit(): void {
@@ -34,59 +35,79 @@ export class DragDirective implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       );
 
-    fromEvent(this.elementRef.nativeElement, 'mousedown')
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe(() => {
-        this.renderer.setStyle(this.elementRef.nativeElement, 'user-select', 'none');
-
-        const nativeElement = this.elementRef.nativeElement as HTMLElement;
-        this.clone = nativeElement.cloneNode(true) as HTMLElement;
-        this.clone.style.width = nativeElement.getBoundingClientRect().width + 'px';
-        this.clone.style.willChange = 'transform';
-        this.clone.style.top = '0px';
-        this.clone.style.left = '0px';
-        this.clone.style.position = 'absolute';
-        this.clone.style.visibility = 'hidden';
-
-        document.body.appendChild(this.clone);
-
-        fromEvent(document, 'mouseup')
-          .pipe(
-            takeUntil(dragEnd$),
-            takeUntil(this.onDestroy$)
-          )
-          .subscribe(() => {
-            this.cardDragService.setDrag(false);
-          })
-
-        this.ngZone.runOutsideAngular(() => {
-          fromEvent(document, 'mousemove')
-            .pipe(
-              takeUntil(dragEnd$),
-              takeUntil(this.onDestroy$)
-            )
-            .subscribe((event: MouseEvent) => {
-              this.clone.style.transform = `translateY(${event.y}px) translateX(${event.x}px)`;
-              this.clone.style.visibility = 'visible';
-            })
-        })
-
-        this.cardDragService.setCardHash(this.dragData);
-        this.cardDragService.setDrag(true);
-      });
-
-    dragEnd$
-      .subscribe(() => {
-        this.clone && this.clone.remove();
-        this.clone = null;
-
-        this.renderer.setStyle(this.elementRef.nativeElement, 'user-select', 'auto');
-      });
+    this.onMouseDown(dragEnd$);
+    this.onDragEnd(dragEnd$);
   }
 
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  private createClone(): void {
+    const nativeElement = this.elementRef.nativeElement as HTMLElement;
+    this.clone = nativeElement.cloneNode(true) as HTMLElement;
+    this.clone.style.width = nativeElement.getBoundingClientRect().width + 'px';
+    this.clone.style.willChange = 'transform';
+    this.clone.style.top = '0px';
+    this.clone.style.left = '0px';
+    this.clone.style.position = 'absolute';
+    this.clone.style.visibility = 'hidden';
+
+    this.document.body.appendChild(this.clone);
+  }
+
+  private onDragEnd(dragEnd$: Observable<boolean>): void {
+    dragEnd$
+      .subscribe(() => {
+
+        if (this.clone) {
+          this.clone.remove();
+          this.clone = null;
+        }
+
+        this.renderer.setStyle(this.elementRef.nativeElement, 'user-select', 'auto');
+      });
+  }
+
+  private onMouseDown(dragEnd$: Observable<boolean>): void {
+    fromEvent(this.elementRef.nativeElement, 'mousedown')
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        this.renderer.setStyle(this.elementRef.nativeElement, 'user-select', 'none');
+
+        this.createClone();
+        this.onMouseUp(dragEnd$);
+        this.onMouseMove(dragEnd$);
+
+        this.cardDragService.setCardHash(this.dragData);
+        this.cardDragService.setDrag(true);
+      });
+  }
+
+  private onMouseMove(dragEnd$: Observable<boolean>): void {
+    this.ngZone.runOutsideAngular(() => {
+      fromEvent(this.document, 'mousemove')
+        .pipe(
+          takeUntil(dragEnd$),
+          takeUntil(this.onDestroy$)
+        )
+        .subscribe((event: MouseEvent) => {
+          this.clone.style.transform = `translateY(${event.y}px) translateX(${event.x}px)`;
+          this.clone.style.visibility = 'visible';
+        });
+    });
+  }
+
+  private onMouseUp(dragEnd$: Observable<boolean>): void {
+    fromEvent(this.document, 'mouseup')
+      .pipe(
+        takeUntil(dragEnd$),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe(() => {
+        this.cardDragService.setDrag(false);
+      });
   }
 
 }
