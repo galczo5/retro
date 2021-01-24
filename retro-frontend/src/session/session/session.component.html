@@ -3,6 +3,7 @@
                       [hash]="container.hash"
                       [sessionHash]="hash"
                       [cards]="getCards(container.hash)"
-                      [header]="container.name"></app-card-container>
+                      [header]="container.name"
+                      (cardDropped)="cardDropped(container.hash, $event)" ></app-card-container>
 </div>
 <app-session-control-panel></app-session-control-panel>

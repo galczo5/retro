@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SessionHttpService } from '../../app/session-http.service';
 import { ContainersService } from '../containers.service';
 import { Card } from '../../models/card';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-card-container',
@@ -22,6 +21,10 @@ export class CardContainerComponent {
 
   @Input()
   cards: Array<Card> = [];
+
+  @Output()
+  cardDropped: EventEmitter<string> = new EventEmitter<string>();
+
   dropActive: boolean = false;
 
   constructor(private readonly httpService: SessionHttpService,
@@ -42,8 +45,8 @@ export class CardContainerComponent {
     return this.cards.length + (this.cards.length === 1 ? ' thought' : ' thoughts')
   }
 
-  dropped($event: any) {
-    console.log('container', $event);
+  dropped(event: string) {
+    this.cardDropped.emit(event);
   }
 
   setDropActive(value: boolean): void {

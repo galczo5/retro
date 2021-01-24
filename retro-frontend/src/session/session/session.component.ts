@@ -71,4 +71,8 @@ export class SessionComponent implements OnInit, OnDestroy {
     return this.cards.get(containerHash) || [];
   }
 
+  cardDropped(containerHash: string, cardHash: string): void {
+    this.cardsService.move(this.hash, containerHash, cardHash);
+  }
+
 }

@@ -4,7 +4,7 @@
      [class.drop-active]="dropActive"
      (onDragEnter)="setDropActive(true)"
      (onDragLeave)="setDropActive(false)"
-     (onDrop)="dropped('container ' + header)">
+     (onDrop)="dropped($event)">
   <div class="text-left flex flex-col">
     <div class="p-3 flex w-full items-center justify-between">
       <app-pill>

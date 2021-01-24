@@ -24,8 +24,31 @@ export class CardsService {
       .subscribe(dtos => {
         const cards = dtos.map(dto => new Card(dto.hash, dto.containerHash, dto.sessionHash, dto.text));
         this.cards$.next(cards);
-      })
+      });
   }
+
+  move(hash: string, containerHash: string, cardHash: string): void {
+    this.sessionHashService.getHash()
+      .pipe(
+        take(1),
+        switchMap(hash => this.httpService.moveCard(hash, containerHash, cardHash))
+      )
+      .subscribe(() => {
+        this.fetch();
+      });
+  }
+
+  merge(cardToDeleteHash: string, cardToUpdateHash: string, text: string): void {
+    this.sessionHashService.getHash()
+      .pipe(
+        take(1),
+        switchMap(hash => this.httpService.mergeCards(hash, cardToDeleteHash, cardToUpdateHash, text))
+      )
+      .subscribe(() => {
+        this.fetch();
+      });
+  }
+
 
   getCards(): Observable<Array<Card>> {
     return this.cards$.asObservable();

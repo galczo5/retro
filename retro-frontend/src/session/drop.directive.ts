@@ -77,9 +77,10 @@ export class DropDirective implements OnInit, OnDestroy {
             takeUntil(dragEnd$)
           )
           .subscribe(() => {
+            const cardHash = this.cardDragService.getCardHash();
             this.cardDragService.setDrag(false)
             this.onDragLeave.emit();
-            this.onDrop.emit(this.cardDragService.getCardHash());
+            this.onDrop.emit(cardHash);
           });
       })
 

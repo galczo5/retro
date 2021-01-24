@@ -14,15 +14,17 @@ import { PillModule } from '../pill/pill.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragDirective } from './drag.directive';
 import { DropDirective } from './drop.directive';
+import { MergeCardsComponent } from './merge-cards/merge-cards.component';
 
 @NgModule({
-  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent, DragDirective, DropDirective],
+  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent, DragDirective, DropDirective, MergeCardsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: SessionComponent },
       { path: 'new-container', component: NewContainerCreatorComponent },
-      { path: 'new-card', component: NewCardCreatorComponent }
+      { path: 'new-card', component: NewCardCreatorComponent },
+      { path: 'merge-cards/:id1/:id2', component: MergeCardsComponent }
     ]),
     MarkdownModule.forRoot(),
     ButtonsModule,

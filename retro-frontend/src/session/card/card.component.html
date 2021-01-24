@@ -3,7 +3,7 @@
      appDrag
      [dragData]="hash"
      [class.drop-active]="dropActive"
-     (onDrop)="onDrop('card ' + hash)"
+     (onDrop)="onDrop($event)"
      (onDragEnter)="setDropActive(true)"
      (onDragLeave)="setDropActive(false)">
   <markdown class="markdown-body" [data]="text" [emoji]="true" ngPreserveWhitespaces></markdown>

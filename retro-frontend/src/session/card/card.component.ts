@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -16,13 +17,14 @@ export class CardComponent implements OnInit {
 
   dropActive: boolean = false;
 
-  constructor() { }
+  constructor(private readonly router: Router,
+              private readonly activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
-  onDrop($event: any) {
-    console.log('card', $event);
+  onDrop(event: string) {
+    this.router.navigate(['merge-cards', this.hash, event], { relativeTo: this.activatedRoute });
   }
 
   setDropActive(value: boolean): void {

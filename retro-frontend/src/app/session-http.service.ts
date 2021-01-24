@@ -10,9 +10,7 @@ import { CardDto } from '../models/cardDto';
 })
 export class SessionHttpService {
 
-  constructor(private readonly client: HttpClient) {
-
-  }
+  constructor(private readonly client: HttpClient) {}
 
   createSession(secretString: string): Observable<string> {
     const body = {
@@ -56,6 +54,27 @@ export class SessionHttpService {
     };
 
     return this.client.post(`http://localhost:3000/session/${hash}/cards`, body)
+      .pipe(map(() => null));
+  }
+
+  moveCard(hash: string, containerHash: string, cardHash: string): Observable<void> {
+    const body = {
+      containerHash: containerHash,
+      cardHash: cardHash
+    };
+
+    return this.client.post(`http://localhost:3000/session/${hash}/cards/move`, body)
+      .pipe(map(() => null));
+  }
+
+  mergeCards(hash: string, cardToDeleteHash: string, cardToUpdateHash: string, text: string): Observable<void> {
+    const body = {
+      cardToDeleteHash: cardToDeleteHash,
+      cardToUpdateHash: cardToUpdateHash,
+      text: text
+    };
+
+    return this.client.post(`http://localhost:3000/session/${hash}/cards/merge`, body)
       .pipe(map(() => null));
   }
 }

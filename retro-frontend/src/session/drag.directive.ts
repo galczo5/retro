@@ -22,6 +22,10 @@ export class DragDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (!this.dragData) {
+      return;
+    }
+
     const dragEnd$ = this.cardDragService.onDrag()
       .pipe(
         filter(state => !state),
@@ -65,6 +69,7 @@ export class DragDirective implements OnInit, OnDestroy {
             })
         })
 
+        this.cardDragService.setCardHash(this.dragData);
         this.cardDragService.setDrag(true);
       });
 
