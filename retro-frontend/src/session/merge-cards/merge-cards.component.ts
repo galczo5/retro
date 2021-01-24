@@ -31,7 +31,8 @@ export class MergeCardsComponent implements OnInit {
   }
 
   prepareText(string: string): string {
-    return ':thumbsup: `MERGED` \n\n\n' + string;
+    const prefix = ':thumbsup: `MERGED` \n\n';
+    return prefix + string.replace(prefix, '');
   }
 
   merge(text: string): void {

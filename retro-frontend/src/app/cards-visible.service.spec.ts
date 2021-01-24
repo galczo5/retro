@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SessionHttpService } from './session-http.service';
+import { CardsVisibleService } from './cards-visible.service';
 
-describe('SessionHttpService', () => {
-  let service: SessionHttpService;
+describe('CardsVisibleService', () => {
+  let service: CardsVisibleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SessionHttpService);
+    service = TestBed.inject(CardsVisibleService);
   });
 
   it('should be created', () => {

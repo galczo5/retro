@@ -24,6 +24,10 @@ export class CardComponent implements OnInit {
   }
 
   onDrop(event: string) {
+    if (this.hash === event) {
+      return;
+    }
+
     this.router.navigate(['merge-cards', this.hash, event], { relativeTo: this.activatedRoute });
   }
 

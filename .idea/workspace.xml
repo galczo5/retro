@@ -6,19 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1c786b5b-0186-48bb-9f8a-76fcfa965c4e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-backend/src/session/card-repository/card-repository.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-backend/src/session/card-repository/card-repository.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-backend/src/session/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-backend/src/session/session.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/app/session-http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/app/session-http.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/card-container/card-container.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/card-container/card-container.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/card-container/card-container.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/card-container/card-container.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/card/card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/card/card.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/card/card.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/card/card.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/cards.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/cards.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/drag.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/drag.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/drop.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/drop.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/session.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/session/session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/session/session.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro-frontend/src/session/session/session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/session/session/session.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kill.sh" beforeDir="false" afterPath="$PROJECT_DIR$/kill.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/retro-frontend/src/app/app-routing.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +30,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/retro-frontend/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/retro-backend/src/model" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,17 +43,17 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/retro-backend/src/session" />
+      <recent name="$PROJECT_DIR$/retro-backend/src/token" />
       <recent name="$PROJECT_DIR$/retro-frontend/src/pill" />
       <recent name="$PROJECT_DIR$/retro-frontend/src/session" />
-      <recent name="$PROJECT_DIR$/retro-frontend/src/app" />
-      <recent name="$PROJECT_DIR$/retro-frontend/src/headers" />
-      <recent name="$PROJECT_DIR$/retro-frontend/src/buttons" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/retro-backend/src/model" />
       <recent name="$PROJECT_DIR$/retro-frontend/src" />
       <recent name="$PROJECT_DIR$/retro-frontend/src/models" />
       <recent name="$PROJECT_DIR$/retro-frontend" />
-      <recent name="$PROJECT_DIR$/retro-backend/src/model" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -77,7 +67,8 @@
       <workItem from="1611084318772" duration="11748000" />
       <workItem from="1611395444775" duration="43000" />
       <workItem from="1611395497826" duration="198000" />
-      <workItem from="1611395706078" duration="38256000" />
+      <workItem from="1611395706078" duration="49541000" />
+      <workItem from="1611499726268" duration="533000" />
     </task>
     <task id="LOCAL-00001" summary="added nest and angular empty projects">
       <created>1611084748234</created>
@@ -121,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611437679219</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dnd">
+      <created>1611487582185</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611487582185</updated>
+    </task>
+    <task id="LOCAL-00008" summary="alpha version">
+      <created>1611498710367</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611498710367</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +141,9 @@
     <MESSAGE value="containers" />
     <MESSAGE value="cards" />
     <MESSAGE value="dnd init" />
-    <option name="LAST_COMMIT_MESSAGE" value="dnd init" />
+    <MESSAGE value="dnd" />
+    <MESSAGE value="alpha version" />
+    <option name="LAST_COMMIT_MESSAGE" value="alpha version" />
   </component>
   <component name="WindowStateProjectService">
     <state x="851" y="562" width="1000" height="906" key="#Intentions" timestamp="1611163344060">
@@ -147,18 +154,18 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="848" y="732" width="702" height="351" key="#Prettier/0.27.3840.2133@0.27.3840.2133" timestamp="1611084779608" />
-    <state x="1117" y="633" width="468" height="704" key="#com.intellij.ide.util.MemberChooser" timestamp="1611432349247">
+    <state x="1117" y="633" width="468" height="704" key="#com.intellij.ide.util.MemberChooser" timestamp="1611487676067">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="1117" y="633" width="468" height="704" key="#com.intellij.ide.util.MemberChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1611432349247" />
+    <state x="1117" y="633" width="468" height="704" key="#com.intellij.ide.util.MemberChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1611487676067" />
     <state x="1047" y="807" width="607" height="355" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1611395571789">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="1047" y="807" width="607" height="355" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.3840.2133@0.27.3840.2133" timestamp="1611395571789" />
-    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2" timestamp="1611437679090">
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2" timestamp="1611498710319">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1611437679090" />
+    <state x="721" y="442" width="2061" height="1395" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1611498710319" />
     <state x="211" y="272" width="3072" height="1743" key="DiffContextDialog" timestamp="1611437665137">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -171,21 +178,21 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="922" y="575" width="675" height="655" key="StructurePopup/0.27.3840.2133@0.27.3840.2133" timestamp="1611420923243" />
-    <state x="1032" y="644" width="957" height="861" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1611429501632">
+    <state x="1032" y="644" width="957" height="861" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1611498224298">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="1032" y="644" width="957" height="861" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1611429501632" />
-    <state x="895" y="599" width="1299" height="975" key="find.popup" timestamp="1611434705537">
+    <state x="1032" y="644" width="957" height="861" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1611498224298" />
+    <state x="895" y="599" width="1299" height="975" key="find.popup" timestamp="1611498180926">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="895" y="599" width="1299" height="975" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611434705537" />
-    <state x="1096" y="507" key="run.anything.popup" timestamp="1611485099853">
+    <state x="895" y="599" width="1299" height="975" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611498180926" />
+    <state x="1096" y="507" key="run.anything.popup" timestamp="1611492189526">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="1096" y="507" key="run.anything.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611485099853" />
-    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup" timestamp="1611485865439">
+    <state x="1096" y="507" key="run.anything.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611492189526" />
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup" timestamp="1611500004749">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611485865439" />
+    <state x="783" y="499" width="840" height="1034" key="search.everywhere.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1611500004749" />
   </component>
 </project>

@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SessionHttpService } from '../../app/session-http.service';
 import { ContainersService } from '../containers.service';
 import { Card } from '../../models/card';
+import { EditorRoleService } from '../../app/editor-role.service';
 
 @Component({
   selector: 'app-card-container',
   templateUrl: './card-container.component.html',
   styleUrls: ['./card-container.component.css']
 })
-export class CardContainerComponent {
+export class CardContainerComponent implements OnInit {
 
   @Input()
   sessionHash: string;
@@ -27,8 +28,15 @@ export class CardContainerComponent {
 
   dropActive: boolean = false;
 
+  canEdit: boolean = false;
+
   constructor(private readonly httpService: SessionHttpService,
-              private readonly containersService: ContainersService) { }
+              private readonly containersService: ContainersService,
+              private readonly editorRoleService: EditorRoleService) { }
+
+  ngOnInit(): void {
+    this.canEdit = this.editorRoleService.canEdit();
+  }
 
   deleteContainer(): void {
     this.httpService.deleteContainer(this.sessionHash, this.hash)

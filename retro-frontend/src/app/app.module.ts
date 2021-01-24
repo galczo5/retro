@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrandModule } from '../brand/brand.module';
 import { UserIdService } from './user-id.service';
-import { UserIdHttpInterceptor } from './UserIdHttpInterceptor';
+import { UserIdInterceptor } from './user-id-interceptor.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 export function userIdPovideFactory(userIdServiceService: UserIdService) {
@@ -35,7 +35,7 @@ export function userIdPovideFactory(userIdServiceService: UserIdService) {
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: UserIdHttpInterceptor,
+      useClass: UserIdInterceptor,
       multi: true
     }
   ],

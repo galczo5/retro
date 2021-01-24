@@ -1,0 +1,17 @@
+{
+  "name": "retro",
+  "description": "retro app root",
+  "scripts": {
+    "kill": "sh ./kill.sh",
+    "prepare": "yarn run prepare:frontend && yarn run prepare:backend",
+    "prepare:frontend": "cd retro-frontend && yarn install && rm -rf ./dist",
+    "prepare:backend": "cd retro-backend && yarn install && rm -rf ./dist",
+    "build": "yarn run build:frontend && yarn run build:backend",
+    "build:frontend": "cd retro-frontend && yarn run build --prod",
+    "build:backend": "cd retro-backend && yarn run build",
+    "docker": "docker-compose up -d",
+    "deploy": "yarn run prepare && yarn run build && yarn run docker && echo 'App started at: http://localhost:4200/'"
+  },
+  "author": "",
+  "license": "ISC"
+}

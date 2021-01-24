@@ -15,16 +15,18 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragDirective } from './drag.directive';
 import { DropDirective } from './drop.directive';
 import { MergeCardsComponent } from './merge-cards/merge-cards.component';
+import { UnlockSessionComponent } from './unlock-session/unlock-session.component';
 
 @NgModule({
-  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent, DragDirective, DropDirective, MergeCardsComponent],
+  declarations: [SessionComponent, CardContainerComponent, CardComponent, SessionControlPanelComponent, NewContainerCreatorComponent, NewCardCreatorComponent, DragDirective, DropDirective, MergeCardsComponent, UnlockSessionComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: SessionComponent },
       { path: 'new-container', component: NewContainerCreatorComponent },
       { path: 'new-card', component: NewCardCreatorComponent },
-      { path: 'merge-cards/:id1/:id2', component: MergeCardsComponent }
+      { path: 'merge-cards/:id1/:id2', component: MergeCardsComponent },
+      { path: 'unlock', component: UnlockSessionComponent }
     ]),
     MarkdownModule.forRoot(),
     ButtonsModule,

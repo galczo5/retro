@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, NgZone, OnDestroy, OnInit, Renderer2 } fr
 import { fromEvent, Subject } from 'rxjs';
 import { CardDragService } from './card-drag.service';
 import { filter, takeUntil } from 'rxjs/operators';
+import { EditorRoleService } from '../app/editor-role.service';
 
 @Directive({
   selector: '[appDrag]'
@@ -17,12 +18,13 @@ export class DragDirective implements OnInit, OnDestroy {
   constructor(private readonly elementRef: ElementRef,
               private readonly renderer: Renderer2,
               private readonly cardDragService: CardDragService,
+              private readonly editorRoleService: EditorRoleService,
               private readonly ngZone: NgZone) {
 
   }
 
   ngOnInit(): void {
-    if (!this.dragData) {
+    if (!this.dragData || !this.editorRoleService.canEdit()) {
       return;
     }
 

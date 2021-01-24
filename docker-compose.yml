@@ -1,0 +1,48 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+  node:
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./retro-backend/:/home/node/app
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    command: "node dist/main.js"
+
+  web:
+    image: nginx
+    volumes:
+      - ./retro-frontend/dist/retro-frontend:/usr/share/nginx/html
+    ports:
+      - 4200:80
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
