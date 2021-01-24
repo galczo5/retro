@@ -16,7 +16,7 @@ export class SessionHttpService {
 
   cardsVisible(hash: string): Observable<boolean> {
     return this.client.get(`${this.getApiUrl()}/session/${hash}`)
-      .pipe(map(response => response.cardsVisible));
+      .pipe(map((response: any) => response.cardsVisible));
   }
 
   run(hash: string): Observable<void> {
@@ -35,7 +35,7 @@ export class SessionHttpService {
     };
 
     return this.client.post(`${this.getApiUrl()}/session/new`, body)
-      .pipe(map(response => response.hash));
+      .pipe(map((response: any) => response.hash));
   }
 
   auth(hash: string, secretString: string): Observable<string> {
@@ -44,7 +44,7 @@ export class SessionHttpService {
     };
 
     return this.client.post(`${this.getApiUrl()}/token/auth/${hash}`, body)
-      .pipe(map(response => response.token));
+      .pipe(map((response: any) => response.token));
   }
 
   createContainer(hash: string, name: string): Observable<void> {
