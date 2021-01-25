@@ -1,4 +1,4 @@
-<div class="bg-gray-50 dark:bg-gray-100 mx-5 pb-10 rounded-2xl z-10"
+<div class="bg-gray-50 dark:bg-gray-600 mx-5 pb-10 rounded-2xl z-10"
      style="min-width: 600px"
      appDrop
      [class.drop-active]="dropActive"
@@ -16,7 +16,7 @@
         </button>
       </app-pill>
 
-      <span class="opacity-30 mr-2 text-indigo-500 text-sm font-bold">
+      <span class="opacity-30 mr-2 text-indigo-500 dark:text-gray-200 text-sm font-bold">
         {{ getCounter() }}
       </span>
     </div>
@@ -35,7 +35,7 @@
     </div>
 
     <div *ngIf="cards.length === 0"
-         class="flex flex-col items-center justify-center py-20 text-gray-200 font-bold text-2xl">
+         class="flex flex-col items-center justify-center py-20 text-gray-200 dark:text-gray-500 font-bold text-2xl">
       <i class="fas fa-sad-cry text-9xl mb-10"></i>
       <div>
         No cards yet
