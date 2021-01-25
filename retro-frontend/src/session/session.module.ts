@@ -18,6 +18,7 @@ import {MergeCardsComponent} from './merge-cards/merge-cards.component';
 import {UnlockSessionComponent} from './unlock-session/unlock-session.component';
 import {ExportModule} from '../export/export.module';
 import {DarkModeModule} from '../dark-mode/dark-mode.module';
+import { ContainerHandleComponent } from './container-handle/container-handle.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {DarkModeModule} from '../dark-mode/dark-mode.module';
     DragDirective,
     DropDirective,
     MergeCardsComponent,
-    UnlockSessionComponent
+    UnlockSessionComponent,
+    ContainerHandleComponent
   ],
     imports: [
         CommonModule,

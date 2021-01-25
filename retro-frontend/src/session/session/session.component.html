@@ -1,9 +1,13 @@
-<div class="w-screen h-screen pt-20 pb-5 flex" style="overflow-x: auto;">
-  <app-card-container *ngFor="let container of containers"
-                      [hash]="container.hash"
-                      [sessionHash]="hash"
-                      [cards]="getCards(container.hash)"
-                      [header]="container.name"
-                      (cardDropped)="cardDropped(container.hash, $event)"></app-card-container>
+<div class="w-screen h-screen pt-20 pb-5 flex px-5" style="overflow-x: auto;">
+  <ng-container *ngFor="let container of containers; let first = first">
+    <app-card-container [hash]="container.hash"
+                        [sessionHash]="hash"
+                        [cards]="getCards(container.hash)"
+                        [header]="container.name"
+                        (cardDropped)="cardDropped(container.hash, $event)"></app-card-container>
+
+    <app-container-handle (widthDelta)="onWidthChange(container.hash, $event)"></app-container-handle>
+
+  </ng-container>
 </div>
 <app-session-control-panel></app-session-control-panel>

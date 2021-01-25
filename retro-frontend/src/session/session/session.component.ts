@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {CardsService} from '../cards.service';
 import {Card} from '../../models/card';
+import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
 
 @Component({
   selector: 'app-session',
@@ -26,7 +27,8 @@ export class SessionComponent implements OnInit, OnDestroy {
   constructor(private readonly route: ActivatedRoute,
               private readonly containersService: ContainersService,
               private readonly cardsService: CardsService,
-              private readonly sessionHashService: SessionHashService) {
+              private readonly sessionHashService: SessionHashService,
+              private readonly cardContainerWidthDeltaService: CardContainerWidthDeltaService) {
   }
 
   ngOnInit(): void {
@@ -66,6 +68,10 @@ export class SessionComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  onWidthChange(hash: string, delta: number): void {
+    this.cardContainerWidthDeltaService.set(hash, delta);
   }
 
   getCards(containerHash: string): Array<Card> {
