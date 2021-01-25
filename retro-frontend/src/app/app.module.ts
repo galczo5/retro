@@ -8,10 +8,17 @@ import {BrandModule} from '../brand/brand.module';
 import {UserIdService} from './user-id.service';
 import {UserIdInterceptor} from './user-id-interceptor.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {DarkModeService} from '../dark-mode/dark-mode.service';
 
 export function userIdProvideFactory(userIdServiceService: UserIdService): () => void {
   return () => {
     userIdServiceService.getUserId();
+  };
+}
+
+export function darkModeInitializer(darkModeService: DarkModeService): () => void {
+  return () => {
+    darkModeService.set(darkModeService.get());
   };
 }
 
@@ -31,6 +38,12 @@ export function userIdProvideFactory(userIdServiceService: UserIdService): () =>
       provide: APP_BOOTSTRAP_LISTENER,
       useFactory: userIdProvideFactory,
       deps: [UserIdService],
+      multi: true
+    },
+    {
+      provide: APP_BOOTSTRAP_LISTENER,
+      useFactory: darkModeInitializer,
+      deps: [DarkModeService],
       multi: true
     },
     {
