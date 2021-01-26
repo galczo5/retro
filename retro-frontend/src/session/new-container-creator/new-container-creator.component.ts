@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {SessionHttpService} from '../../app/session-http.service';
 import {SessionHashService} from '../session-hash.service';
 import {switchMap, take} from 'rxjs/operators';
-import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 @Component({
@@ -10,14 +9,19 @@ import {Location} from '@angular/common';
   templateUrl: './new-container-creator.component.html',
   styleUrls: ['./new-container-creator.component.css']
 })
-export class NewContainerCreatorComponent implements OnInit {
+export class NewContainerCreatorComponent implements AfterViewInit {
+
+  @ViewChild('input', { read: ElementRef })
+  inputElement: ElementRef;
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly sessionHashService: SessionHashService,
               private readonly location: Location) {
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    const nativeElement = this.inputElement.nativeElement as HTMLInputElement;
+    nativeElement.focus();
   }
 
   createContainer(input: HTMLInputElement): void {
@@ -34,4 +38,9 @@ export class NewContainerCreatorComponent implements OnInit {
       });
   }
 
+  onKeyDown($event: KeyboardEvent): void {
+    if ($event.key.toLocaleLowerCase() === 'enter') {
+      this.createContainer(this.inputElement.nativeElement as HTMLInputElement);
+    }
+  }
 }

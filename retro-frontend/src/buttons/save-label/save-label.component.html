@@ -1,0 +1,9 @@
+<span *ngIf="state === 'idle'">{{ text }}</span>
+<span *ngIf="state === 'saving'">
+  <i class="fas fa-circle-notch fa-spin mr-2"></i>
+  Saving
+</span>
+<span *ngIf="state === 'saved'">
+  <i class="fas fa-heart mr-2"></i>
+  Saved!
+</span>

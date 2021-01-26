@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {SessionHttpService} from '../../app/session-http.service';
 import {Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
@@ -9,10 +9,18 @@ import {Observable, of} from 'rxjs';
   templateUrl: './new-session-creator.component.html',
   styleUrls: ['./new-session-creator.component.css']
 })
-export class NewSessionCreatorComponent {
+export class NewSessionCreatorComponent implements AfterViewInit {
+
+  @ViewChild('input', { read: ElementRef })
+  inputElement: ElementRef;
 
   constructor(private readonly httpService: SessionHttpService,
               private readonly router: Router) {
+  }
+
+  ngAfterViewInit(): void {
+    const nativeElement = this.inputElement.nativeElement as HTMLInputElement;
+    nativeElement.focus();
   }
 
   createSession(secretInput: HTMLInputElement): void {
@@ -25,6 +33,12 @@ export class NewSessionCreatorComponent {
       .subscribe(hash =>
         this.router.navigateByUrl(`/session/${hash}`)
       );
+  }
+
+  onKeyDown($event: KeyboardEvent): void {
+    if ($event.key.toLocaleLowerCase() === 'enter') {
+      this.createSession(this.inputElement.nativeElement as HTMLInputElement);
+    }
   }
 
   private auth(hash: string, secretInput: HTMLInputElement): Observable<string> {

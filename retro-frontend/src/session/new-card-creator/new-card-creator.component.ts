@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ContainersService} from '../containers.service';
 import {switchMap, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
@@ -7,33 +7,45 @@ import {SessionHashService} from '../session-hash.service';
 import {SessionHttpService} from '../../app/session-http.service';
 import {Location} from '@angular/common';
 import {UserIdService} from '../../app/user-id.service';
+import {ActivatedRoute} from '@angular/router';
+import {SaveLabelComponent} from '../../buttons/save-label/save-label.component';
 
-@Component({
-  selector: 'app-new-card-creator',
-  templateUrl: './new-card-creator.component.html',
-  styleUrls: ['./new-card-creator.component.css']
-})
-export class NewCardCreatorComponent implements OnInit, OnDestroy {
-
-  containers: Array<Container> = [];
-
-  selectedContainer: string;
-
-  preview = `
+const defaultCardText = `
 # Card example :heart_eyes_cat:
 You can use markdown (like in Git Hub) to create your own styled card.
 
 * Lists
 * Text **styles** and other cool *features*
 * Emojis :heart: [cheatsheet - emoji list](https://github.com/ikatyang/emoji-cheat-sheet)
-  `;
+`;
+
+@Component({
+  selector: 'app-new-card-creator',
+  templateUrl: './new-card-creator.component.html',
+  styleUrls: ['./new-card-creator.component.css']
+})
+export class NewCardCreatorComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @ViewChild('input', { read: ElementRef })
+  inputElement: ElementRef;
+
+  @ViewChild('saveLabel', { read: SaveLabelComponent })
+  saveLabel: SaveLabelComponent;
+
+  containers: Array<Container> = [];
+
+  selectedContainer: string;
+
+  preview = defaultCardText;
+
   private readonly onDestroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly containersService: ContainersService,
               private readonly sessionHashService: SessionHashService,
               private readonly httpService: SessionHttpService,
               private readonly location: Location,
-              private readonly userIdServiceService: UserIdService) {
+              private readonly userIdServiceService: UserIdService,
+              private readonly activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -44,7 +56,8 @@ You can use markdown (like in Git Hub) to create your own styled card.
         this.containers = containers;
 
         if (containers.length) {
-          this.selectedContainer = containers[0].hash;
+          const container = this.activatedRoute.snapshot.queryParamMap.get('container');
+          this.selectedContainer = container || containers[0].hash;
         }
       });
   }
@@ -52,6 +65,11 @@ You can use markdown (like in Git Hub) to create your own styled card.
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  ngAfterViewInit(): void {
+    const nativeElement = this.inputElement.nativeElement as HTMLElement;
+    nativeElement.focus();
   }
 
   setPreview(input: HTMLTextAreaElement): void {
@@ -68,8 +86,11 @@ You can use markdown (like in Git Hub) to create your own styled card.
   }
 
   createCard(input: HTMLTextAreaElement): void {
-    const userId = this.userIdServiceService.getUserId();
+    if (!input.value) {
+      return;
+    }
 
+    this.saveLabel.startSave();
     this.sessionHashService.getHash()
       .pipe(
         take(1),
@@ -78,7 +99,20 @@ You can use markdown (like in Git Hub) to create your own styled card.
         )
       )
       .subscribe(() => {
-        this.location.back();
+        this.saveLabel.endSave();
       });
+  }
+
+  onSaved(): void {
+    const nativeElement = this.inputElement.nativeElement as HTMLTextAreaElement;
+    nativeElement.value = '';
+    nativeElement.focus();
+    this.preview = defaultCardText;
+  }
+
+  checkSave(event: KeyboardEvent): void {
+    if (event.ctrlKey && event.key.toLocaleLowerCase() === 'enter') {
+      this.createCard(this.inputElement.nativeElement as HTMLTextAreaElement);
+    }
   }
 }

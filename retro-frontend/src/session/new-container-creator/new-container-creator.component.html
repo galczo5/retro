@@ -8,7 +8,8 @@
     <input #input
            class="dark:text-gray-200 dark:bg-gray-800 dark:border-gray-800 p-3 border-2 mb-5 rounded"
            type="text"
-           placeholder="Sth interesting for your team...">
+           placeholder="Sth interesting for your team..."
+           (keydown)="onKeyDown($event)">
 
     <div class="text-right">
       <app-button class="mr-3"

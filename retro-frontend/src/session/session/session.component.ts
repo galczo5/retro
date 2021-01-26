@@ -1,13 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContainersService} from '../containers.service';
 import {SessionHashService} from '../session-hash.service';
 import {Container} from '../../models/container';
-import {Subject} from 'rxjs';
+import {fromEvent, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {CardsService} from '../cards.service';
 import {Card} from '../../models/card';
 import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-session',
@@ -28,7 +29,9 @@ export class SessionComponent implements OnInit, OnDestroy {
               private readonly containersService: ContainersService,
               private readonly cardsService: CardsService,
               private readonly sessionHashService: SessionHashService,
-              private readonly cardContainerWidthDeltaService: CardContainerWidthDeltaService) {
+              private readonly cardContainerWidthDeltaService: CardContainerWidthDeltaService,
+              @Inject(DOCUMENT) private readonly document: Document,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,6 +48,17 @@ export class SessionComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(containers => {
         this.containers = containers;
+      });
+
+    fromEvent(this.document, 'keydown')
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event: KeyboardEvent) => {
+        console.log(event);
+        if (event.key === 'c') {
+          this.router.navigate(['new-card'], { relativeTo: this.route });
+          event.preventDefault();
+          event.stopPropagation();
+        }
       });
 
     this.cardsService.getCards()

@@ -19,6 +19,8 @@ import {UnlockSessionComponent} from './unlock-session/unlock-session.component'
 import {ExportModule} from '../export/export.module';
 import {DarkModeModule} from '../dark-mode/dark-mode.module';
 import { ContainerHandleComponent } from './container-handle/container-handle.component';
+import { CreateCardButtonComponent } from './create-card-button/create-card-button.component';
+import {ShortcutLabelModule} from '../shortcut-label/shortcut-label.module';
 
 @NgModule({
   declarations: [
@@ -32,25 +34,27 @@ import { ContainerHandleComponent } from './container-handle/container-handle.co
     DropDirective,
     MergeCardsComponent,
     UnlockSessionComponent,
-    ContainerHandleComponent
+    ContainerHandleComponent,
+    CreateCardButtonComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([
-            {path: '', component: SessionComponent},
-            {path: 'new-container', component: NewContainerCreatorComponent},
-            {path: 'new-card', component: NewCardCreatorComponent},
-            {path: 'merge-cards/:id1/:id2', component: MergeCardsComponent},
-            {path: 'unlock', component: UnlockSessionComponent}
-        ]),
-        MarkdownModule.forRoot(),
-        ButtonsModule,
-        HeadersModule,
-        PillModule,
-        DragDropModule,
-        ExportModule,
-        DarkModeModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {path: '', component: SessionComponent},
+      {path: 'new-container', component: NewContainerCreatorComponent},
+      {path: 'new-card', component: NewCardCreatorComponent},
+      {path: 'merge-cards/:id1/:id2', component: MergeCardsComponent},
+      {path: 'unlock', component: UnlockSessionComponent}
+    ]),
+    MarkdownModule.forRoot(),
+    ButtonsModule,
+    HeadersModule,
+    PillModule,
+    DragDropModule,
+    ExportModule,
+    DarkModeModule,
+    ShortcutLabelModule
+  ]
 })
 export class SessionModule {
 }

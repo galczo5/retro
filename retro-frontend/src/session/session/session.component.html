@@ -1,13 +1,13 @@
-<div class="w-screen h-screen pt-20 pb-5 flex px-5" style="overflow-x: auto;">
+<div class="w-screen h-screen pt-20 pb-5 flex px-5 fixed" style="overflow-x: auto;">
   <ng-container *ngFor="let container of containers; let first = first">
     <app-card-container [hash]="container.hash"
                         [sessionHash]="hash"
                         [cards]="getCards(container.hash)"
                         [header]="container.name"
-                        (cardDropped)="cardDropped(container.hash, $event)"></app-card-container>
-
+                        (cardDropped)="cardDropped(container.hash, $event)">
+      <app-shortcut-label *ngIf="first" shortcut="c" description="to create card"></app-shortcut-label>
+    </app-card-container>
     <app-container-handle (widthDelta)="onWidthChange(container.hash, $event)"></app-container-handle>
-
   </ng-container>
 </div>
 <app-session-control-panel></app-session-control-panel>

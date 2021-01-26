@@ -1,32 +1,40 @@
-<div class="control-panel flex items-center bg-indigo-500 dark:bg-gray-800 rounded-2xl overflow-hidden px-3">
-
-  <app-dark-mode></app-dark-mode>
-  <i class="text-white opacity-20 fas fa-grip-lines-vertical mx-1"></i>
-
-  <app-button routerLink="new-card">
-    <i class="fas fa-plus-circle mr-2"></i> New card
-  </app-button>
-
-  <ng-container *ngIf="!canEdit">
-    <i class="text-white opacity-20 fas fa-grip-lines-vertical mx-1"></i>
-    <app-button routerLink="unlock">
-      <i class="fas fa-unlock"></i>
+<div class="control-panel flex flex-col bg-indigo-500 dark:bg-gray-800 rounded-2xl overflow-hidden px-3">
+  <div *ngIf="share" class="w-full">
+    <input readonly class="opacity-75 bg-transparent text-gray-200 my-2 text-xs w-full"
+           [value]="link">
+  </div>
+  <div class="flex items-center">
+    <app-dark-mode></app-dark-mode>
+    <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+    <app-button (click)="toggleShare()">
+      <i class="fas fa-share-alt mr-2"></i> Share
     </app-button>
-  </ng-container>
 
-  <ng-container *ngIf="canEdit">
-    <i class="text-white opacity-20 fas fa-grip-lines-vertical mx-1"></i>
-    <app-button routerLink="new-container">
-      <i class="fas fa-box mr-2"></i> New container
+    <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+    <app-button routerLink="new-card">
+      <i class="fas fa-plus-circle mr-2"></i> Add card
     </app-button>
-    <i class="text-white opacity-20 fas fa-grip-lines-vertical mx-1"></i>
-    <app-export-button></app-export-button>
-    <i class="text-white opacity-20 fas fa-grip-lines-vertical mx-1"></i>
-    <app-button (click)="toggle()">
+
+    <ng-container *ngIf="!canEdit">
+      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <app-button routerLink="unlock">
+        <i class="fas fa-unlock"></i>
+      </app-button>
+    </ng-container>
+
+    <ng-container *ngIf="canEdit">
+      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <app-button routerLink="new-container">
+        <i class="fas fa-box mr-2"></i> Add container
+      </app-button>
+      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <app-export-button></app-export-button>
+      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <app-button (click)="toggle()">
       <span class="fas"
             [class.fa-running]="!cardsVisible"
             [class.fa-eye-slash]="cardsVisible"></span>
-    </app-button>
-  </ng-container>
-
+      </app-button>
+    </ng-container>
+  </div>
 </div>

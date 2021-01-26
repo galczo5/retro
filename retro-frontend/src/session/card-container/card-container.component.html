@@ -21,25 +21,24 @@
       </span>
     </div>
 
-    <div *ngIf="cards.length > 0" class="flex mt-1">
-      <div [class]="(containerWidth + containerWidthDelta > 600) ? 'w-1/2 pl-3 pr-2' : 'min-w-full px-3'">
+    <div *ngIf="cards.length > 0" class="flex mt-1 p-1">
+      <div class="w-1/2 p-1">
         <app-card *ngFor="let card of getCards(0)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
-      <div [class]="(containerWidth + containerWidthDelta > 600) ? 'w-1/2 pl-3 pr-2' : 'min-w-full px-3'">
+      <div class="w-1/2 p-1">
         <app-card *ngFor="let card of getCards(1)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
     </div>
 
-    <div *ngIf="cards.length === 0"
-         class="flex flex-col items-center justify-center py-20 text-gray-200 dark:text-gray-500 font-bold text-2xl">
-      <i class="fas fa-sad-cry text-9xl mb-10"></i>
-      <div>
-        No cards yet
-      </div>
+    <div class="flex flex-col items-center justify-center">
+      <app-create-card-button [hash]="hash"></app-create-card-button>
     </div>
   </div>
+</div>
+<div class="pt-5 pb-20 pl-5">
+  <ng-content></ng-content>
 </div>

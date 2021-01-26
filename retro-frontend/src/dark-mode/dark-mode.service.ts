@@ -20,9 +20,9 @@ export class DarkModeService {
   set(dark: boolean): void {
     localStorage.setItem('dark-mode', dark ? 'true' : '');
     if (dark) {
-      this.renderer.addClass(this.document.body, 'dark');
+      this.renderer.addClass(this.document.getElementsByTagName('html')[0], 'dark');
     } else {
-      this.renderer.removeClass(this.document.body, 'dark');
+      this.renderer.removeClass(this.document.getElementsByTagName('html')[0], 'dark');
     }
   }
 }
