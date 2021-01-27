@@ -5,7 +5,15 @@
                         [cards]="getCards(container.hash)"
                         [header]="container.name"
                         (cardDropped)="cardDropped(container.hash, $event)">
-      <app-shortcut-label *ngIf="first" shortcut="c" description="to create card"></app-shortcut-label>
+      <div class="mb-2" *ngIf="first">
+        <app-shortcut-label shortcut="c" description="to create card"></app-shortcut-label>
+      </div>
+      <div class="mb-2" *ngIf="first">
+        <app-shortcut-label shortcut="k" description="to create container"></app-shortcut-label>
+      </div>
+      <div class="mb-2" *ngIf="first">
+        <app-shortcut-label shortcut="s" description="to start/stop meeting"></app-shortcut-label>
+      </div>
     </app-card-container>
     <app-container-handle (widthDelta)="onWidthChange(container.hash, $event)"></app-container-handle>
   </ng-container>

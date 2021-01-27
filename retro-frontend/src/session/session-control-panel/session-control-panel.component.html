@@ -5,36 +5,53 @@
   </div>
   <div class="flex items-center">
     <app-dark-mode></app-dark-mode>
-    <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
-    <app-button (click)="toggleShare()">
-      <i class="fas fa-share-alt mr-2"></i> Share
-    </app-button>
 
-    <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+    <div class="hidden sm:block">
+      <ng-content *ngTemplateOutlet="separator"></ng-content>
+      <app-button (click)="toggleShare()">
+        <i class="fas fa-share-alt mr-2"></i> Share
+      </app-button>
+    </div>
+
+    <ng-content *ngTemplateOutlet="separator"></ng-content>
     <app-button routerLink="new-card">
-      <i class="fas fa-plus-circle mr-2"></i> Add card
+      <i class="fas fa-plus-circle mr-2"></i>
+      <span class="hidden sm:inline">
+        Add card
+      </span>
     </app-button>
 
     <ng-container *ngIf="!canEdit">
-      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <ng-content *ngTemplateOutlet="separator"></ng-content>
       <app-button routerLink="unlock">
         <i class="fas fa-unlock"></i>
       </app-button>
     </ng-container>
 
     <ng-container *ngIf="canEdit">
-      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+      <ng-content *ngTemplateOutlet="separator"></ng-content>
       <app-button routerLink="new-container">
-        <i class="fas fa-box mr-2"></i> Add container
+        <i class="fas fa-box mr-2"></i>
+        <span class="hidden sm:inline">
+          Add container
+        </span>
       </app-button>
-      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
-      <app-export-button></app-export-button>
-      <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+
+      <div class="hidden sm:block">
+        <ng-content *ngTemplateOutlet="separator"></ng-content>
+        <app-export-button></app-export-button>
+      </div>
+
+      <ng-content *ngTemplateOutlet="separator"></ng-content>
       <app-button (click)="toggle()">
-      <span class="fas"
-            [class.fa-running]="!cardsVisible"
-            [class.fa-eye-slash]="cardsVisible"></span>
+        <span class="fas"
+              [class.fa-eye-slash]="!cardsVisible"
+              [class.fa-eye]="cardsVisible"></span>
       </app-button>
     </ng-container>
   </div>
 </div>
+
+<ng-template #separator>
+  <i class="text-white opacity-20 fas fa-ellipsis-v mx-1"></i>
+</ng-template>

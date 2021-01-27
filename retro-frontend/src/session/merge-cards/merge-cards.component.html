@@ -4,14 +4,14 @@
     Choose card version
   </app-header>
 
-  <div class="flex justify-center bg-gray-50 rounded-2xl">
+  <div class="flex justify-center bg-gray-50 dark:bg-gray-600 rounded-2xl">
 
     <div class="p-3" style="width: 300px;">
       <app-card class="cursor-pointer"
                 [text]="prepareText(left.text)"
                 (click)="merge(prepareText(left.text))"></app-card>
 
-      <div class="text-center text-lg text-gray-500">Left</div>
+      <div class="text-center text-lg text-gray-500 dark:text-gray-200">Left</div>
     </div>
 
     <div class="p-3" style="width: 300px;">
@@ -19,7 +19,7 @@
                 [text]="prepareText(left.text + '\n --- \n' + right.text)"
                 (click)="merge(prepareText(left.text + '\n --- \n' + right.text))"></app-card>
 
-      <div class="text-center text-lg text-gray-500">Merged</div>
+      <div class="text-center text-lg text-gray-500 dark:text-gray-200">Merged</div>
     </div>
 
     <div class="p-3" style="width: 300px;">
@@ -27,7 +27,7 @@
                 [text]="prepareText(right.text)"
                 (click)="merge(prepareText(right.text))"></app-card>
 
-      <div class="text-center text-lg text-gray-500">Right</div>
+      <div class="text-center text-lg text-gray-500 dark:text-gray-200">Right</div>
     </div>
 
   </div>

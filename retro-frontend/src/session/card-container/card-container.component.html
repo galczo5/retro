@@ -16,18 +16,18 @@
         </button>
       </app-pill>
 
-      <span class="opacity-30 mr-2 text-indigo-500 dark:text-gray-200 text-sm font-bold">
+      <span class="opacity-30 mr-2 text-indigo-500 dark:text-gray-200 text-sm font-bold hidden sm:inline-block">
         {{ getCounter() }}
       </span>
     </div>
 
-    <div *ngIf="cards.length > 0" class="flex mt-1 p-1">
-      <div class="w-1/2 p-1">
+    <div *ngIf="cards.length > 0" class="flex flex-col sm:flex-row mt-1 p-1">
+      <div class="sm:w-1/2 p-1">
         <app-card *ngFor="let card of getCards(0)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
-      <div class="w-1/2 p-1">
+      <div class="sm:w-1/2 p-1">
         <app-card *ngFor="let card of getCards(1)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
@@ -39,6 +39,6 @@
     </div>
   </div>
 </div>
-<div class="pt-5 pb-20 pl-5">
+<div class="pt-5 pb-20 pl-5 hidden sm:block">
   <ng-content></ng-content>
 </div>

@@ -53,7 +53,6 @@ export class SessionComponent implements OnInit, OnDestroy {
     fromEvent(this.document, 'keydown')
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((event: KeyboardEvent) => {
-        console.log(event);
         if (event.key === 'c') {
           this.router.navigate(['new-card'], { relativeTo: this.route });
           event.preventDefault();

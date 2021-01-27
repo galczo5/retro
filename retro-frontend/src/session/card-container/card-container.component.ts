@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, Renderer2} from '@angular/core';
 import {SessionHttpService} from '../../app/session-http.service';
 import {ContainersService} from '../containers.service';
 import {Card} from '../../models/card';
@@ -7,6 +7,9 @@ import {CardContainerWidthService} from '../card-container-width.service';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
+import {DOCUMENT} from '@angular/common';
+
+const DEFAULT_RESPONSIVE_WIDTH = 300;
 
 @Component({
   selector: 'app-card-container',
@@ -44,14 +47,22 @@ export class CardContainerComponent implements OnInit, OnDestroy {
               private readonly editorRoleService: EditorRoleService,
               private readonly cardContainerWidthService: CardContainerWidthService,
               private readonly cardContainerWidthDeltaService: CardContainerWidthDeltaService,
-              private readonly changeDetectorRef: ChangeDetectorRef) {
+              private readonly changeDetectorRef: ChangeDetectorRef,
+              @Inject(DOCUMENT) private readonly document: Document) {
   }
 
   ngOnInit(): void {
+    if (!this.allowWidthChange()) {
+      this.containerWidth = DEFAULT_RESPONSIVE_WIDTH;
+    }
+
     this.canEdit = this.editorRoleService.canEdit();
 
     this.cardContainerWidthService.get()
-      .pipe(takeUntil(this.onDestroy$))
+      .pipe(
+        filter(() => this.allowWidthChange()),
+        takeUntil(this.onDestroy$)
+      )
       .subscribe(width => {
         this.containerWidth = width;
         this.containerWidthDelta = 0;
@@ -59,6 +70,7 @@ export class CardContainerComponent implements OnInit, OnDestroy {
 
     this.cardContainerWidthDeltaService.get()
       .pipe(
+        filter(() => this.allowWidthChange()),
         filter(delta => delta.containerHash === this.hash),
         takeUntil(this.onDestroy$)
       )
@@ -71,6 +83,10 @@ export class CardContainerComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  allowWidthChange(): boolean {
+    return this.document.body.clientWidth > 1000;
   }
 
   deleteContainer(): void {
