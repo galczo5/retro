@@ -9,6 +9,8 @@ import {UserIdService} from './user-id.service';
 import {UserIdInterceptor} from './user-id-interceptor.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DarkModeService} from '../dark-mode/dark-mode.service';
+import {DarkModeModule} from '../dark-mode/dark-mode.module';
+import {ButtonsModule} from '../buttons/buttons.module';
 
 export function userIdProvideFactory(userIdServiceService: UserIdService): () => void {
   return () => {
@@ -31,7 +33,9 @@ export function darkModeInitializer(darkModeService: DarkModeService): () => voi
     DragDropModule,
     HttpClientModule,
     AppRoutingModule,
-    BrandModule
+    BrandModule,
+    DarkModeModule,
+    ButtonsModule
   ],
   providers: [
     {

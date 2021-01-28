@@ -1,0 +1,9 @@
+<div *ngIf="location"
+     class="cursor-pointer hidden sm:flex items-center mr-3 text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-600 rounded-full py-0.5 px-3"
+     (click)="copy(inputElement)">
+  <span class="text-xs mr-2">
+    {{ location }}
+  </span>
+  <input #inputElement class="w-1 text-transparent border-transparent bg-transparent" type="text" [value]="location">
+  <i class="fas fa-share-alt" [class.animate-pulse]="copied"></i>
+</div>

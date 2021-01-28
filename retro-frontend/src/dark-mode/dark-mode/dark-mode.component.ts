@@ -10,6 +10,8 @@ export class DarkModeComponent implements OnInit {
 
   dark: boolean = false;
 
+  size: number = 26;
+
   constructor(private readonly darkModeService: DarkModeService) { }
 
   ngOnInit(): void {

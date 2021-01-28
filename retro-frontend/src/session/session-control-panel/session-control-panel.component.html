@@ -4,16 +4,6 @@
            [value]="link">
   </div>
   <div class="flex items-center">
-    <app-dark-mode></app-dark-mode>
-
-    <div class="hidden sm:block">
-      <ng-content *ngTemplateOutlet="separator"></ng-content>
-      <app-button (click)="toggleShare()">
-        <i class="fas fa-share-alt mr-2"></i> Share
-      </app-button>
-    </div>
-
-    <ng-content *ngTemplateOutlet="separator"></ng-content>
     <app-button routerLink="new-card">
       <i class="fas fa-plus-circle mr-2"></i>
       <span class="hidden sm:inline">

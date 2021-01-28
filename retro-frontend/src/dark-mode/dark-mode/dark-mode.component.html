@@ -1,4 +1,16 @@
-<app-button (click)="toggle()">
-  <i *ngIf="dark" class="fas fa-lightbulb"></i>
-  <i *ngIf="!dark" class="fas fa-moon"></i>
-</app-button>
+<div class="flex rounded-full bg-gray-200 dark:bg-gray-600" (click)="toggle()">
+  <div class="flex items-center justify-center rounded-full text-gray-200"
+       [style.width.px]="size"
+       [style.height.px]="size"
+       [class.shadow]="dark"
+       [class.bg-gray-500]="dark">
+    <i *ngIf="dark" class="text-sm fas fa-lightbulb"></i>
+  </div>
+  <div class="flex items-center justify-center rounded-full text-gray-800"
+       [style.width.px]="size"
+       [style.height.px]="size"
+       [class.shadow]="!dark"
+       [class.bg-gray-100]="!dark">
+    <i *ngIf="!dark" class="text-sm fas fa-moon"></i>
+  </div>
+</div>

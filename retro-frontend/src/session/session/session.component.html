@@ -1,4 +1,4 @@
-<div class="w-screen h-screen pt-20 pb-5 flex px-5 fixed" style="overflow-x: auto;">
+<div class="w-full h-full pb-5 flex px-5 fixed" style="overflow-x: auto;">
   <ng-container *ngFor="let container of containers; let first = first">
     <app-card-container [hash]="container.hash"
                         [sessionHash]="hash"
@@ -7,12 +7,6 @@
                         (cardDropped)="cardDropped(container.hash, $event)">
       <div class="mb-2" *ngIf="first">
         <app-shortcut-label shortcut="c" description="to create card"></app-shortcut-label>
-      </div>
-      <div class="mb-2" *ngIf="first">
-        <app-shortcut-label shortcut="k" description="to create container"></app-shortcut-label>
-      </div>
-      <div class="mb-2" *ngIf="first">
-        <app-shortcut-label shortcut="s" description="to start/stop meeting"></app-shortcut-label>
       </div>
     </app-card-container>
     <app-container-handle (widthDelta)="onWidthChange(container.hash, $event)"></app-container-handle>

@@ -53,6 +53,7 @@ export class DragDirective implements OnInit, OnDestroy {
     this.clone.style.left = '0px';
     this.clone.style.position = 'absolute';
     this.clone.style.visibility = 'hidden';
+    this.clone.style.opacity = '0.8';
 
     this.document.body.appendChild(this.clone);
   }
