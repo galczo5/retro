@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {ContainerDto} from '../models/containerDto';
+import {CardsContainerDto} from '../models/cardsContainerDto';
 import {CardDto} from '../models/cardDto';
 import {environment} from '../environments/environment';
 
@@ -56,9 +56,9 @@ export class SessionHttpService {
       .pipe(map(() => null));
   }
 
-  getContainers(hash: string): Observable<Array<ContainerDto>> {
+  getContainers(hash: string): Observable<Array<CardsContainerDto>> {
     return this.client.get(`${this.getApiUrl()}/session/${hash}/containers`)
-      .pipe(map(obj => obj as Array<ContainerDto>));
+      .pipe(map(obj => obj as Array<CardsContainerDto>));
   }
 
   deleteContainer(hash: string, containerHash: string): Observable<void> {

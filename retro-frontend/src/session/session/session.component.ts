@@ -2,7 +2,7 @@ import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContainersService} from '../containers.service';
 import {SessionHashService} from '../session-hash.service';
-import {Container} from '../../models/container';
+import {CardsContainer} from '../../models/cardsContainer';
 import {fromEvent, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {CardsService} from '../cards.service';
@@ -17,7 +17,7 @@ import {DOCUMENT} from '@angular/common';
 })
 export class SessionComponent implements OnInit, OnDestroy {
 
-  containers: Array<Container>;
+  containers: Array<CardsContainer>;
 
   hash: string;
 

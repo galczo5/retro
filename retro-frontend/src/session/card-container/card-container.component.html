@@ -8,7 +8,7 @@
   <div class="text-left flex flex-col">
     <div class="p-3 flex w-full items-center justify-between">
       <app-pill>
-        {{ header }}
+        {{header}}
         <button *ngIf="canEdit"
                 class="ml-2"
                 (click)="deleteContainer()">
@@ -17,7 +17,7 @@
       </app-pill>
 
       <span class="opacity-30 mr-2 text-indigo-500 dark:text-gray-200 text-sm font-bold hidden sm:inline-block">
-        {{ getCounter() }}
+        {{'cards-container.THOUGHTS'|translate}}: {{this.cards.length}}
       </span>
     </div>
 

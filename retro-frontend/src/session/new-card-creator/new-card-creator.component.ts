@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from
 import {ContainersService} from '../containers.service';
 import {switchMap, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {Container} from '../../models/container';
+import {CardsContainer} from '../../models/cardsContainer';
 import {SessionHashService} from '../session-hash.service';
 import {SessionHttpService} from '../../app/session-http.service';
 import {Location} from '@angular/common';
@@ -32,7 +32,7 @@ export class NewCardCreatorComponent implements OnInit, OnDestroy, AfterViewInit
   @ViewChild('saveLabel', { read: SaveLabelComponent })
   saveLabel: SaveLabelComponent;
 
-  containers: Array<Container> = [];
+  containers: Array<CardsContainer> = [];
 
   selectedContainer: string;
 

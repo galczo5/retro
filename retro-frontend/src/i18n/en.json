@@ -1,0 +1,25 @@
+{
+  "session-control-panel": {
+    "SHARE": "Share",
+    "ADD_CARD": "Add card",
+    "ADD_CONTAINER": "Add container",
+    "LANGUAGE": "Language",
+    "EXPORT": "Export board"
+  },
+  "cards-container": {
+    "CLICK_TO_ADD_CARD": "Click to add new card",
+    "THOUGHTS": "Thoughts"
+  },
+  "shortcuts": {
+    "PRESS_BUTTON": "Press",
+    "TO_CREATE_CARD": "to create card",
+    "TO_CREATE_CONTAINER": "to create container",
+    "TO_START_STOP_MEETING": "to start/stop meeting",
+    "TO_CREATE": "to create"
+  },
+  "card-creator": {
+    "CREATE_NEW_CARD": "Create new card",
+    "GO_BACK_TO_BOARD": "Go back to board",
+    "CREATE_CARD": "Create card"
+  }
+}

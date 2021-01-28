@@ -1,0 +1,9 @@
+<select
+  [ngModel]="selectedLanguage"
+  (ngModelChange)="selectLanguage($event)"
+  name="language"
+  id="select-language">
+
+  <option value="en">English</option>
+  <option value="pl">Polski</option>
+</select>

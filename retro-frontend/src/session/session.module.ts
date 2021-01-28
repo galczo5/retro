@@ -1,10 +1,10 @@
-import {NgModule, SecurityContext} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SessionComponent} from './session/session.component';
 import {RouterModule} from '@angular/router';
 import {CardContainerComponent} from './card-container/card-container.component';
 import {CardComponent} from './card/card.component';
-import {MarkdownModule, MarkedOptions} from 'ngx-markdown';
+import {MarkdownModule} from 'ngx-markdown';
 import {SessionControlPanelComponent} from './session-control-panel/session-control-panel.component';
 import {ButtonsModule} from '../buttons/buttons.module';
 import {NewContainerCreatorComponent} from './new-container-creator/new-container-creator.component';
@@ -18,9 +18,11 @@ import {MergeCardsComponent} from './merge-cards/merge-cards.component';
 import {UnlockSessionComponent} from './unlock-session/unlock-session.component';
 import {ExportModule} from '../export/export.module';
 import {DarkModeModule} from '../dark-mode/dark-mode.module';
-import { ContainerHandleComponent } from './container-handle/container-handle.component';
-import { CreateCardButtonComponent } from './create-card-button/create-card-button.component';
+import {ContainerHandleComponent} from './container-handle/container-handle.component';
+import {CreateCardButtonComponent} from './create-card-button/create-card-button.component';
 import {ShortcutLabelModule} from '../shortcut-label/shortcut-label.module';
+import {TranslateModule} from '@ngx-translate/core';
+import {LanguageModule} from "../language/language.module";
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import {ShortcutLabelModule} from '../shortcut-label/shortcut-label.module';
     DragDropModule,
     ExportModule,
     DarkModeModule,
-    ShortcutLabelModule
+    ShortcutLabelModule,
+    TranslateModule,
+    LanguageModule
   ]
 })
 export class SessionModule {

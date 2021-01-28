@@ -2,7 +2,7 @@
 
   <div class="flex flex-col dark:sm:bg-gray-700 justify-center mt-20 mb-20 sm:mb-0 sm:mt-0">
     <app-header class="hidden sm:block">
-      Create new card
+      {{'card-creator.CREATE_NEW_CARD'|translate}}
     </app-header>
 
     <div class="flex flex-col sm:flex-row mb-5 px-3 sm:px-0">
@@ -26,13 +26,13 @@
 
     <div class="flex justify-between items-center px-3 sm:px-3">
       <div class="hidden sm:block ">
-        <app-shortcut-label shortcut="Ctrl + Enter" description="to create"></app-shortcut-label>
+        <app-shortcut-label shortcut="Ctrl + Enter" description="{{'shortcuts.TO_CREATE'|translate}}"></app-shortcut-label>
       </div>
       <div>
         <app-button class="mr-3"
                     [alternative]="true"
                     routerLink="../">
-          Go back to board
+          {{'card-creator.GO_BACK_TO_BOARD'|translate}}
         </app-button>
         <app-button (click)="createCard(input)">
           <app-save-label #saveLabel (saved)="onSaved()" text="Create card"></app-save-label>

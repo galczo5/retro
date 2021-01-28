@@ -6,13 +6,13 @@
                         [header]="container.name"
                         (cardDropped)="cardDropped(container.hash, $event)">
       <div class="mb-2" *ngIf="first">
-        <app-shortcut-label shortcut="c" description="to create card"></app-shortcut-label>
+        <app-shortcut-label shortcut="c" [description]="'shortcuts.TO_CREATE_CARD'|translate"></app-shortcut-label>
       </div>
       <div class="mb-2" *ngIf="first">
-        <app-shortcut-label shortcut="k" description="to create container"></app-shortcut-label>
+        <app-shortcut-label shortcut="k" [description]="'shortcuts.TO_CREATE_CONTAINER'|translate"></app-shortcut-label>
       </div>
       <div class="mb-2" *ngIf="first">
-        <app-shortcut-label shortcut="s" description="to start/stop meeting"></app-shortcut-label>
+        <app-shortcut-label shortcut="s" [description]="'shortcuts.TO_START_STOP_MEETING'|translate"></app-shortcut-label>
       </div>
     </app-card-container>
     <app-container-handle (widthDelta)="onWidthChange(container.hash, $event)"></app-container-handle>

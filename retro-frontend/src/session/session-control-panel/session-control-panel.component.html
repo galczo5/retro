@@ -9,7 +9,7 @@
     <div class="hidden sm:block">
       <ng-content *ngTemplateOutlet="separator"></ng-content>
       <app-button (click)="toggleShare()">
-        <i class="fas fa-share-alt mr-2"></i> Share
+        <i class="fas fa-share-alt mr-2"></i> {{'session-control-panel.SHARE'|translate}}
       </app-button>
     </div>
 
@@ -17,9 +17,12 @@
     <app-button routerLink="new-card">
       <i class="fas fa-plus-circle mr-2"></i>
       <span class="hidden sm:inline">
-        Add card
+        {{'session-control-panel.ADD_CARD'|translate}}
       </span>
     </app-button>
+
+    <ng-content *ngTemplateOutlet="separator"></ng-content>
+    <app-select-language></app-select-language>
 
     <ng-container *ngIf="!canEdit">
       <ng-content *ngTemplateOutlet="separator"></ng-content>
@@ -33,7 +36,7 @@
       <app-button routerLink="new-container">
         <i class="fas fa-box mr-2"></i>
         <span class="hidden sm:inline">
-          Add container
+          {{'session-control-panel.ADD_CONTAINER'|translate}}
         </span>
       </app-button>
 
@@ -46,7 +49,8 @@
       <app-button (click)="toggle()">
         <span class="fas"
               [class.fa-eye-slash]="!cardsVisible"
-              [class.fa-eye]="cardsVisible"></span>
+              [class.fa-eye]="cardsVisible">
+        </span>
       </app-button>
     </ng-container>
   </div>

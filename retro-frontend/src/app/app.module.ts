@@ -3,12 +3,15 @@ import {APP_BOOTSTRAP_LISTENER, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {BrandModule} from '../brand/brand.module';
 import {UserIdService} from './user-id.service';
 import {UserIdInterceptor} from './user-id-interceptor.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DarkModeService} from '../dark-mode/dark-mode.service';
+import {LanguageService} from "../language/language.service";
 
 export function userIdProvideFactory(userIdServiceService: UserIdService): () => void {
   return () => {
@@ -22,6 +25,16 @@ export function darkModeInitializer(darkModeService: DarkModeService): () => voi
   };
 }
 
+export function languageInitializer(languageService: LanguageService): () => void {
+  return () => {
+    languageService.set(languageService.get());
+  };
+}
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -31,7 +44,15 @@ export function darkModeInitializer(darkModeService: DarkModeService): () => voi
     DragDropModule,
     HttpClientModule,
     AppRoutingModule,
-    BrandModule
+    BrandModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    })
   ],
   providers: [
     {
@@ -44,6 +65,12 @@ export function darkModeInitializer(darkModeService: DarkModeService): () => voi
       provide: APP_BOOTSTRAP_LISTENER,
       useFactory: darkModeInitializer,
       deps: [DarkModeService],
+      multi: true
+    },
+    {
+      provide: APP_BOOTSTRAP_LISTENER,
+      useFactory: languageInitializer,
+      deps: [LanguageService],
       multi: true
     },
     {

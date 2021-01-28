@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Container} from '../models/container';
+import {CardsContainer} from '../models/cardsContainer';
 import {Card} from '../models/card';
 
 @Injectable({
@@ -7,7 +7,7 @@ import {Card} from '../models/card';
 })
 export class ExportService {
 
-  exportMarkdown(containers: Array<Container>, cards: Array<Card>): string {
+  exportMarkdown(containers: Array<CardsContainer>, cards: Array<Card>): string {
     let result = '';
     for (const container of containers) {
       result += '# <span style="color:blue">' + container.name + '</span>\n';

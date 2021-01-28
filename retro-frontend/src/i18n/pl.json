@@ -1,0 +1,25 @@
+{
+  "session-control-panel": {
+    "SHARE": "Udostępnij",
+    "ADD_CARD": "Dodaj kartę",
+    "ADD_CONTAINER": "Dodaj grupę",
+    "LANGUAGE": "Język",
+    "EXPORT": "Eksportuj tablicę"
+  },
+  "cards-container": {
+    "CLICK_TO_ADD_CARD": "Kliknij aby dodać kartę",
+    "THOUGHTS": "Przemyślenia"
+  },
+  "shortcuts": {
+    "PRESS_BUTTON": "Naciśnij",
+    "TO_CREATE_CARD": "żeby dodać kartę",
+    "TO_CREATE_CONTAINER": "żeby stworzyć grupę",
+    "TO_START_STOP_MEETING": "żeby rozpocząć/zakończyć spotkanie",
+    "TO_CREATE": "żeby utworzyć"
+  },
+  "card-creator": {
+    "CREATE_NEW_CARD": "Stwórz nową kartę",
+    "GO_BACK_TO_BOARD": "Wróć do tablicy",
+    "CREATE_CARD": "Stwórz kartę"
+  }
+}

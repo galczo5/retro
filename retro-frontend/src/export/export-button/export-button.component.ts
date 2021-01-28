@@ -3,7 +3,7 @@ import {ContainersService} from '../../session/containers.service';
 import {CardsService} from '../../session/cards.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {Container} from '../../models/container';
+import {CardsContainer} from '../../models/cardsContainer';
 import {Card} from '../../models/card';
 import {ExportService} from '../export.service';
 import {saveAs} from 'file-saver';
@@ -16,7 +16,7 @@ import {saveAs} from 'file-saver';
 export class ExportButtonComponent implements OnInit, OnDestroy {
 
   private readonly onDestroy$: Subject<void> = new Subject<void>();
-  private containers: Array<Container> = [];
+  private containers: Array<CardsContainer> = [];
   private cards: Array<Card> = [];
 
   constructor(private readonly containersService: ContainersService,
