@@ -11,7 +11,7 @@ import { UserAuthService } from './user-auth/user-auth.service';
 export class SessionController {
 
   constructor(private readonly defaultSessionFactoryService: DefaultSessionFactoryService,
-              private readonly sessionRepositoryService: SessionRepositoryService,
+    private readonly sessionRepositoryService: SessionRepositoryService,
               private readonly containerRepositoryService: ContainerRepositoryService,
               private readonly cardRepositoryService: CardRepositoryService,
               private readonly authService: UserAuthService) {

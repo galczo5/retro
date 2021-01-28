@@ -12,7 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
         user: 'root',
         password: 'example',
       },
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
