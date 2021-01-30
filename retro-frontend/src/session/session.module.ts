@@ -21,6 +21,7 @@ import {DarkModeModule} from '../dark-mode/dark-mode.module';
 import { ContainerHandleComponent } from './container-handle/container-handle.component';
 import { CreateCardButtonComponent } from './create-card-button/create-card-button.component';
 import {ShortcutLabelModule} from '../shortcut-label/shortcut-label.module';
+import { CardReactionsComponent } from './card-reactions/card-reactions.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {ShortcutLabelModule} from '../shortcut-label/shortcut-label.module';
     MergeCardsComponent,
     UnlockSessionComponent,
     ContainerHandleComponent,
-    CreateCardButtonComponent
+    CreateCardButtonComponent,
+    CardReactionsComponent
   ],
   imports: [
     CommonModule,

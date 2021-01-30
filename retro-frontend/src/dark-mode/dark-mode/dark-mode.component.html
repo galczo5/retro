@@ -1,16 +1,14 @@
-<div class="flex rounded-full bg-gray-200 dark:bg-gray-600" (click)="toggle()">
-  <div class="flex items-center justify-center rounded-full text-gray-200"
+<div class="flex rounded-full bg-gray-100 dark:bg-gray-600"
+     [style.width.px]="size * 2"
+     [class.flex-row]="dark"
+     [class.flex-row-reverse]="!dark"
+     (click)="toggle()">
+  <div class="flex shadow items-center justify-center rounded-full"
        [style.width.px]="size"
        [style.height.px]="size"
-       [class.shadow]="dark"
-       [class.bg-gray-500]="dark">
-    <i *ngIf="dark" class="text-sm fas fa-lightbulb"></i>
-  </div>
-  <div class="flex items-center justify-center rounded-full text-gray-800"
-       [style.width.px]="size"
-       [style.height.px]="size"
-       [class.shadow]="!dark"
-       [class.bg-gray-100]="!dark">
-    <i *ngIf="!dark" class="text-sm fas fa-moon"></i>
+       [class.bg-gray-500]="dark"
+       [class.bg-indigo-500]="!dark">
+    <i *ngIf="dark" class="text-sm text-gray-200 fas fa-lightbulb"></i>
+    <i *ngIf="!dark" class="text-sm text-white fas fa-moon"></i>
   </div>
 </div>

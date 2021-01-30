@@ -1,12 +1,12 @@
 <div class="h-screen w-screen grid auto-rows-fr" style="grid-template-rows: 75px;">
-  <div class="flex items-center justify-between py-5 px-10">
+  <div class="w-screen flex items-center justify-between py-5 px-10">
     <app-top-left-logo></app-top-left-logo>
     <div class="flex items-center">
       <app-share-button></app-share-button>
       <app-dark-mode></app-dark-mode>
     </div>
   </div>
-  <div>
+  <div class="overflow-auto">
     <router-outlet></router-outlet>
   </div>
 </div>

@@ -34,6 +34,7 @@ export class ContainerHandleComponent implements OnInit, OnDestroy {
         const mouseUp$: Subject<void> = new Subject<void>();
         const startX = event.x;
         this.duringDrag = true;
+        this.renderer.setStyle(this.document.body, 'user-select', 'none');
         this.renderer.setStyle(this.elementRef.nativeElement, 'position', 'relative');
 
         this.ngZone.runOutsideAngular(() => {
@@ -43,6 +44,7 @@ export class ContainerHandleComponent implements OnInit, OnDestroy {
               takeUntil(this.onDestroy$)
             )
             .subscribe((mouseUpEvent: MouseEvent) => {
+              console.log(mouseUpEvent);
               const endX = mouseUpEvent.x;
               this.widthDelta.emit(endX - startX);
             });
@@ -66,6 +68,7 @@ export class ContainerHandleComponent implements OnInit, OnDestroy {
               });
 
             this.duringDrag = false;
+            this.renderer.removeStyle(this.document.body, 'user-select');
             this.renderer.removeStyle(this.elementRef.nativeElement, 'position');
             this.renderer.removeStyle(this.elementRef.nativeElement, 'left');
 
