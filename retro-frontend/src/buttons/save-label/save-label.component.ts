@@ -4,8 +4,7 @@ import {delay, takeUntil, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-save-label',
-  templateUrl: './save-label.component.html',
-  styleUrls: ['./save-label.component.css']
+  templateUrl: './save-label.component.html'
 })
 export class SaveLabelComponent implements OnDestroy {
 

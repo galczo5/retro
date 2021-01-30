@@ -8,8 +8,7 @@ import {EditorRoleService} from '../../app/editor-role.service';
 
 @Component({
   selector: 'app-unlock-session',
-  templateUrl: './unlock-session.component.html',
-  styleUrls: ['./unlock-session.component.css']
+  templateUrl: './unlock-session.component.html'
 })
 export class UnlockSessionComponent implements OnInit {
 

@@ -6,8 +6,7 @@ import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-merge-cards',
-  templateUrl: './merge-cards.component.html',
-  styleUrls: ['./merge-cards.component.css']
+  templateUrl: './merge-cards.component.html'
 })
 export class MergeCardsComponent implements OnInit {
 

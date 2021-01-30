@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-shortcut-label',
-  templateUrl: './shortcut-label.component.html',
-  styleUrls: ['./shortcut-label.component.css']
+  templateUrl: './shortcut-label.component.html'
 })
 export class ShortcutLabelComponent implements OnInit {
 

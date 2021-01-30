@@ -6,8 +6,7 @@ import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-new-session-creator',
-  templateUrl: './new-session-creator.component.html',
-  styleUrls: ['./new-session-creator.component.css']
+  templateUrl: './new-session-creator.component.html'
 })
 export class NewSessionCreatorComponent implements AfterViewInit {
 

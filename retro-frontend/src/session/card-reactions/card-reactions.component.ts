@@ -6,7 +6,6 @@ import {CardReactionsService} from '../card-reactions.service';
 @Component({
   selector: 'app-card-reactions',
   templateUrl: './card-reactions.component.html',
-  styleUrls: ['./card-reactions.component.css'],
   host: {
     '[class.flex]': 'true',
     '[class.justify-end]': 'true'

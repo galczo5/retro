@@ -6,8 +6,7 @@ import {take, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-container-handle',
-  templateUrl: './container-handle.component.html',
-  styleUrls: ['./container-handle.component.css']
+  templateUrl: './container-handle.component.html'
 })
 export class ContainerHandleComponent implements OnInit, OnDestroy {
 

@@ -6,8 +6,7 @@ import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-new-container-creator',
-  templateUrl: './new-container-creator.component.html',
-  styleUrls: ['./new-container-creator.component.css']
+  templateUrl: './new-container-creator.component.html'
 })
 export class NewContainerCreatorComponent implements AfterViewInit {
 

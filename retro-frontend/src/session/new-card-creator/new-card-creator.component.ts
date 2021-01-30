@@ -21,8 +21,7 @@ You can use markdown (like in Git Hub) to create your own styled card.
 
 @Component({
   selector: 'app-new-card-creator',
-  templateUrl: './new-card-creator.component.html',
-  styleUrls: ['./new-card-creator.component.css']
+  templateUrl: './new-card-creator.component.html'
 })
 export class NewCardCreatorComponent implements OnInit, OnDestroy, AfterViewInit {
 

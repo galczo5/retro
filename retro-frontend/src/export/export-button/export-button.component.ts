@@ -10,8 +10,7 @@ import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-export-button',
-  templateUrl: './export-button.component.html',
-  styleUrls: ['./export-button.component.css']
+  templateUrl: './export-button.component.html'
 })
 export class ExportButtonComponent implements OnInit, OnDestroy {
 
