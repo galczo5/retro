@@ -13,6 +13,8 @@ import { Token, TokenSchema } from '../model/tokens';
 import { TokenController } from './token.controller';
 import { TokenRepositoryService } from './token-repository/token-repository.service';
 import { UserAuthService } from './user-auth/user-auth.service';
+import { CardReactionRepositoryService } from './card-reaction-repository/card-reaction-repository.service';
+import {CardReaction, CardReactionSchema} from "../model/cardReaction";
 
 @Module({
   imports: [
@@ -20,10 +22,11 @@ import { UserAuthService } from './user-auth/user-auth.service';
       { name: Session.name, schema: SessionSchema },
       { name: Container.name, schema: ContainerSchema },
       { name: Card.name, schema: CardSchema },
-      { name: Token.name, schema: TokenSchema }
+      { name: Token.name, schema: TokenSchema },
+      { name: CardReaction.name, schema: CardReactionSchema }
     ]),
   ],
-  providers: [DefaultSessionFactoryService, HashGeneratorService, SessionRepositoryService, ContainerRepositoryService, CardRepositoryService, TokenRepositoryService, UserAuthService],
+  providers: [DefaultSessionFactoryService, HashGeneratorService, SessionRepositoryService, ContainerRepositoryService, CardRepositoryService, TokenRepositoryService, UserAuthService, CardReactionRepositoryService],
   controllers: [SessionController, TokenController],
 })
 export class SessionModule {

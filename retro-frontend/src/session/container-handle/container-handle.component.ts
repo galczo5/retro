@@ -44,7 +44,6 @@ export class ContainerHandleComponent implements OnInit, OnDestroy {
               takeUntil(this.onDestroy$)
             )
             .subscribe((mouseUpEvent: MouseEvent) => {
-              console.log(mouseUpEvent);
               const endX = mouseUpEvent.x;
               this.widthDelta.emit(endX - startX);
             });

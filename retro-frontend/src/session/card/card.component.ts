@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop} from '@angular/cdk/drag-drop';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Reaction} from "../../models/reaction";
 
 @Component({
   selector: 'app-card',
@@ -14,6 +15,9 @@ export class CardComponent implements OnInit {
 
   @Input()
   text: string;
+
+  @Input()
+  reactions: Array<Reaction> = [];
 
   dropActive = false;
 

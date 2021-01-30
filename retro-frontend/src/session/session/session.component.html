@@ -1,8 +1,9 @@
-<div class="w-full h-full pb-5 flex px-5" style="overflow-x: auto;">
+<div #scrollContainer class="w-full h-full pb-5 flex px-5" style="overflow-x: auto;">
   <ng-container *ngFor="let container of containers; let first = first">
     <app-card-container [hash]="container.hash"
                         [sessionHash]="hash"
                         [cards]="getCards(container.hash)"
+                        [reactions]="reactionsMap"
                         [header]="container.name"
                         (cardDropped)="cardDropped(container.hash, $event)">
       <div class="mb-2" *ngIf="first">

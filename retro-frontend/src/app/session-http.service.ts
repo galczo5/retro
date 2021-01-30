@@ -5,6 +5,8 @@ import {map} from 'rxjs/operators';
 import {ContainerDto} from '../models/containerDto';
 import {CardDto} from '../models/cardDto';
 import {environment} from '../environments/environment';
+import {CardReactionDto} from "../models/cardReactionDto";
+import {Reaction} from "../models/reaction";
 
 @Injectable({
   providedIn: 'root'
@@ -100,6 +102,20 @@ export class SessionHttpService {
 
     return this.client.post(`${this.getApiUrl()}/session/${hash}/cards/merge`, body)
       .pipe(map(() => null));
+  }
+
+  toggleCardReaction(hash: string, cardHash: string, reaction: Reaction): Observable<void> {
+    const body = {
+      reaction
+    };
+
+    return this.client.post(`${this.getApiUrl()}/session/${hash}/cards/${cardHash}/reaction`, body)
+      .pipe(map(() => null));
+  }
+
+  getCardReactions(hash: string): Observable<Array<CardReactionDto>> {
+    return this.client.get(`${this.getApiUrl()}/session/${hash}/cardReactions`)
+      .pipe(map(x => x as Array<CardReactionDto>));
   }
 
   private getApiUrl(): string {

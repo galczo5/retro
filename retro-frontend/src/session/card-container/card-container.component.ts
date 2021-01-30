@@ -8,6 +8,7 @@ import {filter, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
 import {DOCUMENT} from '@angular/common';
+import {Reaction} from "../../models/reaction";
 
 const DEFAULT_RESPONSIVE_WIDTH = 300;
 
@@ -29,6 +30,9 @@ export class CardContainerComponent implements OnInit, OnDestroy {
 
   @Input()
   cards: Array<Card> = [];
+
+  @Input()
+  reactions: Map<string, Array<Reaction>> = new Map<string, Array<Reaction>>();
 
   @Output()
   cardDropped: EventEmitter<string> = new EventEmitter<string>();

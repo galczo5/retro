@@ -1,4 +1,4 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContainersService} from '../containers.service';
 import {SessionHashService} from '../session-hash.service';
@@ -9,6 +9,8 @@ import {CardsService} from '../cards.service';
 import {Card} from '../../models/card';
 import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
 import {DOCUMENT} from '@angular/common';
+import {CardReactionsService} from '../card-reactions.service';
+import {Reaction} from '../../models/reaction';
 
 @Component({
   selector: 'app-session',
@@ -17,12 +19,16 @@ import {DOCUMENT} from '@angular/common';
 })
 export class SessionComponent implements OnInit, OnDestroy {
 
+  @ViewChild('scrollContainer', { read: ElementRef })
+  scrollContainer: ElementRef;
+
   containers: Array<Container>;
 
   hash: string;
 
-  private cards: Map<string, Array<Card>> = new Map<string, Array<Card>>();
+  reactionsMap: Map<string, Array<Reaction>> = new Map<string, Array<Reaction>>();
 
+  private cards: Map<string, Array<Card>> = new Map<string, Array<Card>>();
   private readonly onDestroy$: Subject<void> = new Subject<void>();
 
   constructor(private readonly route: ActivatedRoute,
@@ -30,6 +36,7 @@ export class SessionComponent implements OnInit, OnDestroy {
               private readonly cardsService: CardsService,
               private readonly sessionHashService: SessionHashService,
               private readonly cardContainerWidthDeltaService: CardContainerWidthDeltaService,
+              private readonly cardReactionsService: CardReactionsService,
               @Inject(DOCUMENT) private readonly document: Document,
               private readonly router: Router) {
   }
@@ -37,6 +44,11 @@ export class SessionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.containersService.fetch();
     this.cardsService.fetch();
+    this.cardReactionsService.fetch();
+
+    this.cardReactionsService.getReactions()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(reactionsMap => this.reactionsMap = reactionsMap);
 
     this.sessionHashService.getHash()
       .pipe(takeUntil(this.onDestroy$))

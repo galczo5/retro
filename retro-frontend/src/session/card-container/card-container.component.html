@@ -24,11 +24,13 @@
     <div *ngIf="cards.length > 0" class="flex flex-col sm:flex-row mt-1 p-1">
       <div class="sm:w-1/2 p-1">
         <app-card *ngFor="let card of getCards(0)"
+                  [reactions]="reactions.get(card.hash)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>
       <div class="sm:w-1/2 p-1">
         <app-card *ngFor="let card of getCards(1)"
+                  [reactions]="reactions.get(card.hash)"
                   [hash]="card.hash"
                   [text]="card.text"></app-card>
       </div>

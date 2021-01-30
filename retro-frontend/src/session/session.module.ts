@@ -37,6 +37,7 @@ import { CardReactionsComponent } from './card-reactions/card-reactions.componen
     UnlockSessionComponent,
     ContainerHandleComponent,
     CreateCardButtonComponent,
+    CardReactionsComponent,
     CardReactionsComponent
   ],
   imports: [

@@ -6,6 +6,8 @@ import { SessionRepositoryService } from './session-repository/session-repositor
 import { ContainerRepositoryService } from './container-repository/container-repository.service';
 import { CardRepositoryService } from './card-repository/card-repository.service';
 import { UserAuthService } from './user-auth/user-auth.service';
+import {CardReactionRepositoryService} from "./card-reaction-repository/card-reaction-repository.service";
+import {Reaction} from "../model/cardReaction";
 
 @Controller('session')
 export class SessionController {
@@ -14,6 +16,7 @@ export class SessionController {
               private readonly sessionRepositoryService: SessionRepositoryService,
               private readonly containerRepositoryService: ContainerRepositoryService,
               private readonly cardRepositoryService: CardRepositoryService,
+              private readonly cardReactionRepositoryService: CardReactionRepositoryService,
               private readonly authService: UserAuthService) {
   }
 
@@ -142,6 +145,20 @@ export class SessionController {
     } catch (e) {
       throw new HttpException(e, 401);
     }
+  }
+
+  @Post(':hash/cards/:cardHash/reaction')
+  async toggle(
+      @Param('hash') hash: string,
+      @Param('cardHash') cardHash: string,
+      @Headers('User-Token') token: string,
+      @Body() body: { reaction: Reaction }) {
+    return await this.cardReactionRepositoryService.toggle(hash, cardHash, body.reaction, token);
+  }
+
+  @Get(':hash/cardReactions')
+  async cardReactions(@Param('hash') hash: string) {
+    return await this.cardReactionRepositoryService.getAll(hash);
   }
 
 }
