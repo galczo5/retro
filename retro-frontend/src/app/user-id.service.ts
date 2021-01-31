@@ -7,11 +7,16 @@ import {DOCUMENT} from '@angular/common';
 export class UserIdService {
 
   public static readonly KEY: string = 'retro-app-user-id';
+  private userId: string;
 
   constructor(@Inject(DOCUMENT) private readonly document: Document) {
   }
 
   getUserId(): string {
+
+    if (this.userId) {
+      return this.userId;
+    }
 
     const item = localStorage.getItem(UserIdService.KEY);
     if (!item) {
@@ -21,6 +26,9 @@ export class UserIdService {
 
     const result = localStorage.getItem(UserIdService.KEY);
     this.document.cookie = 'User-Id=' + result;
+
+    this.userId = result;
+
     return result;
   }
 

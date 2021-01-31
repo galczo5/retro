@@ -4,7 +4,7 @@ import {CardReaction} from "../models/cardReaction";
 import {SessionHttpService} from "../app/session-http.service";
 import {SessionHashService} from "./session-hash.service";
 import {map, switchMap, take} from "rxjs/operators";
-import {Reaction} from "../models/reaction";
+import {Reaction, ReactionWithCreator} from "../models/reaction";
 
 @Injectable({
   providedIn: 'root'
@@ -28,15 +28,20 @@ export class CardReactionsService {
       });
   }
 
-  getReactions(): Observable<Map<string, Array<Reaction>>> {
+  getReactions(): Observable<Map<string, Array<ReactionWithCreator>>> {
     return this.reactions$
       .pipe(
         map(reactions => {
-          const result = new Map<string, Array<Reaction>>();
+          const result = new Map<string, Array<ReactionWithCreator>>();
 
           for (const reaction of reactions) {
             const value = result.get(reaction.cardHash) || [];
-            result.set(reaction.cardHash, [...value, reaction.reaction]);
+            const newReaction: ReactionWithCreator = {
+              creator: reaction.creator,
+              reaction: reaction.reaction
+            };
+
+            result.set(reaction.cardHash, [...value, newReaction]);
           }
 
           return result;

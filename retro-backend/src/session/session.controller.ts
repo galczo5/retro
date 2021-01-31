@@ -151,9 +151,9 @@ export class SessionController {
   async toggle(
       @Param('hash') hash: string,
       @Param('cardHash') cardHash: string,
-      @Headers('User-Token') token: string,
+      @Headers('User-Id') creator: string,
       @Body() body: { reaction: Reaction }) {
-    return await this.cardReactionRepositoryService.toggle(hash, cardHash, body.reaction, token);
+    return await this.cardReactionRepositoryService.toggle(hash, cardHash, body.reaction, creator);
   }
 
   @Get(':hash/cardReactions')

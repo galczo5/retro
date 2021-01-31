@@ -20,8 +20,10 @@ export class UserIdInterceptor implements HttpInterceptor {
     });
 
     if (token) {
-      httpRequest = httpRequest.clone({
-        headers: req.headers.set('User-Token', token)
+      httpRequest = req.clone({
+        headers: req.headers
+          .set('User-Id', userId)
+          .set('User-Token', token)
       });
     }
 

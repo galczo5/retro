@@ -10,7 +10,7 @@ import {Card} from '../../models/card';
 import {CardContainerWidthDeltaService} from '../card-container-width-delta.service';
 import {DOCUMENT} from '@angular/common';
 import {CardReactionsService} from '../card-reactions.service';
-import {Reaction} from '../../models/reaction';
+import {Reaction, ReactionWithCreator} from '../../models/reaction';
 
 @Component({
   selector: 'app-session',
@@ -26,7 +26,7 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   hash: string;
 
-  reactionsMap: Map<string, Array<Reaction>> = new Map<string, Array<Reaction>>();
+  reactionsMap: Map<string, Array<ReactionWithCreator>> = new Map<string, Array<ReactionWithCreator>>();
 
   private cards: Map<string, Array<Card>> = new Map<string, Array<Card>>();
   private readonly onDestroy$: Subject<void> = new Subject<void>();
@@ -48,7 +48,9 @@ export class SessionComponent implements OnInit, OnDestroy {
 
     this.cardReactionsService.getReactions()
       .pipe(takeUntil(this.onDestroy$))
-      .subscribe(reactionsMap => this.reactionsMap = reactionsMap);
+      .subscribe(reactionsMap => {
+        this.reactionsMap = reactionsMap;
+      });
 
     this.sessionHashService.getHash()
       .pipe(takeUntil(this.onDestroy$))

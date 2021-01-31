@@ -24,17 +24,17 @@ export class CardReactionRepositoryService {
         });
     }
 
-    toggle(sessionHash: string, cardHash: string, reaction: Reaction, token: string): Promise<void> {
+    toggle(sessionHash: string, cardHash: string, reaction: Reaction, userId: string): Promise<void> {
         const query = {
             'cardHash': cardHash,
             'reaction': reaction,
-            'creator': token
+            'creator': userId
         };
 
         return new Promise<void>((resolve, reject) => {
             this.cardReactionDocumentModel.count(query, (err, exists) => {
                 if (!exists) {
-                    this.cardReactionDocumentModel.create(new CardReaction(sessionHash, cardHash, reaction, token))
+                    this.cardReactionDocumentModel.create(new CardReaction(sessionHash, cardHash, reaction, userId))
                         .then(() => resolve());
                 } else {
                     this.cardReactionDocumentModel.deleteMany(query, { upsert: false }, (err) => {

@@ -1,17 +1,37 @@
-<div class="flex items-center text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2 mr-2"
-     (click)="toggle($event, 'LOVED')">
-  <markdown data=":heart:" emoji></markdown>
-  <span class="ml-1">{{loved()}}</span>
+<div class="flex items-center border-2 border-transparent text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2 mr-2"
+     [class.bg-indigo-500]="isActive('LOVED')"
+     [class.text-white]="isActive('LOVED')"
+     [class.dark:border-gray-200]="isActive('LOVED')"
+     (click)="toggle($event, 'LOVED')"
+     (mousedown)="stopPropagation($event)">
+
+  <markdown [class.animate-ping]="clicked === 'LOVED'"
+            data=":heart:"
+            emoji></markdown>
+
+  <span class="ml-1">{{getCount('LOVED')}}</span>
 </div>
 
-<div class="flex items-center text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2 mr-2"
-     (click)="toggle($event, 'LIKED')">
-  <markdown data=":+1:" emoji></markdown>
-  <span class="ml-1">{{liked()}}</span>
+<div class="flex items-center border-2 border-transparent text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2 mr-2"
+     [class.bg-indigo-500]="isActive('LIKED')"
+     [class.text-white]="isActive('LIKED')"
+     [class.dark:border-gray-200]="isActive('LIKED')"
+     (click)="toggle($event, 'LIKED')"
+     (mousedown)="stopPropagation($event)">
+  <markdown [class.animate-ping]="clicked === 'LIKED'"
+            data=":+1:"
+            emoji></markdown>
+  <span class="ml-1">{{getCount('LIKED')}}</span>
 </div>
 
-<div class="flex items-center text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2"
-     (click)="toggle($event, 'DISLIKED')">
-  <markdown data=":-1:" emoji></markdown>
-  <span class="ml-1">{{disliked()}}</span>
+<div class="flex items-center border-2 border-transparent text-xs rounded-full bg-gray-100 dark:bg-gray-500 text-black dark:text-gray-200 py-1 px-2"
+     [class.bg-indigo-500]="isActive('DISLIKED')"
+     [class.text-white]="isActive('DISLIKED')"
+     [class.dark:border-gray-200]="isActive('DISLIKED')"
+     (click)="toggle($event, 'DISLIKED')"
+     (mousedown)="stopPropagation($event)">
+  <markdown [class.animate-ping]="clicked === 'DISLIKED'"
+            data=":-1:"
+            emoji></markdown>
+  <span class="ml-1">{{getCount('DISLIKED')}}</span>
 </div>
